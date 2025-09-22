@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ТВОЯТ-ДОМЕЙН/sitemap.xml
+Sitemap: https://DEIN-DOMAINNAME/sitemap.xml
