@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://DEIN-DOMAINNAME/sitemap.xml
+Sitemap: https://rusev-gebaeudereinigung.de/sitemap.xml
