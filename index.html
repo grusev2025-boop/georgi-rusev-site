@@ -1,193 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Georgi Rusev Gebäudereinigung – Köln & Umgebung</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Georgi Rusev Gebäudereinigung</title>
   <meta name="description" content="Professionelle Gebäudereinigung in Köln – Wohnungen, Büros, Geschäfte, Glasreinigung, Grundreinigung und Baureinigung. Schnell & zuverlässig.">
-  <link rel="icon" href="favicon.ico">
-  <meta property="og:title" content="Georgi Rusev Gebäudereinigung – Köln">
-  <meta property="og:description" content="Haushalts-, Büro- & Glasreinigung. Grundreinigung & Baureinigung. Angebot in 30 Min.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://DEIN-DOMAINNAME">
-  <meta property="og:image" content="https://DEIN-DOMAINNAME/cover.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    :root { --max: 1150px; --blue:#0284c7; --blue2:#0ea5e9; --bg:#f5f8fc; --text:#14181c; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background: var(--bg) url('background.jpg') no-repeat center top / cover fixed; }
-    a { color:inherit; text-decoration:none; }
-    img { max-width:100%; height:auto; display:block; border-radius:12px; }
-    .wrap { max-width: var(--max); margin:0 auto; padding: 0 20px; }
-    header { background: linear-gradient(135deg, rgba(14,165,233,.10), rgba(2,132,199,.10)); }
-    .navbar { position:sticky; top:0; backdrop-filter:saturate(1.5) blur(8px); background: rgba(255,255,255,.8); border-bottom:1px solid #e6eef7; z-index:50; }
-    .nav { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; }
-    .brand { display:flex; gap:10px; align-items:center; font-weight:800; }
-    .brand .dot { width:12px; height:12px; border-radius:999px; background: var(--blue); }
-    .btn { display:inline-block; padding:12px 18px; border:1px solid var(--blue); border-radius:12px; font-weight:700; }
-    .btn.primary { background: var(--blue); color:#fff; }
-    .btn.ghost { background:#fff; color:var(--blue); }
-    .hero { padding:64px 0; }
-    .cols { display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:center; }
-    .hero h1 { font-size: clamp(30px,4vw,48px); margin:0 0 10px; line-height:1.1; }
-    .sub { color:#334155; font-size:18px; margin-bottom:18px; }
-    .kpis { display:grid; grid-template-columns: repeat(2,1fr); gap:14px; margin-top:16px; }
-    .card { border:1px solid #e6eef7; border-radius:16px; padding:16px; background:#fff; box-shadow: 0 8px 24px rgba(2,132,199,.06); }
-    section { padding: 36px 0; }
-    h2 { font-size: clamp(22px,3vw,28px); margin:0 0 14px; }
-    .grid { display:grid; gap:16px; }
-    .services { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
-    .prices { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
-    .badge { font-size:12px; border:1px solid #cfe6f6; padding:4px 8px; border-radius:999px; display:inline-block; color: var(--blue); background:#edf7fe; }
-    .cta { text-align:center; padding:40px 20px; background: linear-gradient(135deg, var(--blue2), var(--blue)); color:#fff; border-radius:20px; }
-    footer { border-top:1px solid #e6eef7; color:#334155; padding:24px 0 50px; }
-    @media (max-width: 900px){ .cols{ grid-template-columns:1fr; } .nav .hide-sm{ display:none; } }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#f6f9fc;color:#333;line-height:1.6}
+    header{background:#004080;padding:15px 30px;display:flex;align-items:center;justify-content:space-between;color:#fff;position:sticky;top:0;z-index:1000}
+    nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:600}
+    nav a:hover{text-decoration:underline}
+
+    /* --- 3D заглавие --- */
+    .site-title{
+      font-size:clamp(36px,6vw,70px);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:3px;
+      background:linear-gradient(90deg,#ffffff,#cce6ff,#80c1ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:
+        2px 2px 0 #004080,
+        4px 4px 0 #003060,
+        6px 6px 8px rgba(0,0,0,0.4);
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    .sub{
+      text-align:center;
+      font-size:1.2rem;
+      color:#004080;
+      margin-bottom:40px;
+    }
+
+    .hero{padding:80px 20px;background:linear-gradient(180deg,#e6f2ff,#f9fbfd)}
+
+    .section{padding:60px 20px;max-width:1100px;margin:auto}
+    .section h2{text-align:center;font-size:2rem;margin-bottom:30px;color:#004080}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.08);transition:.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 6px 14px rgba(0,0,0,0.12)}
+
+    footer{background:#004080;color:#fff;text-align:center;padding:20px;margin-top:40px}
+    footer a{color:#fff;text-decoration:underline}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CleaningService",
-    "name": "Georgi Rusev Gebäudereinigung",
-    "image": "https://DEIN-DOMAINNAME/cover.jpg",
-    "telephone": "+4917680274345",
-    "email": "G.Rusev25@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Köln",
-      "addressCountry": "DE"
-    },
-    "areaServed": ["Köln","Rheinland"],
-    "url": "https://DEIN-DOMAINNAME",
-    "priceRange": "€€",
-    "sameAs": []
-  }
-  </script>
 </head>
 <body>
 
-<div class="navbar">
-  <div class="wrap nav">
-    <div class="brand"><span class="dot"></span> Georgi Rusev Gebäudereinigung</div>
-    <div class="hide-sm">
-      <a class="btn ghost" href="tel:+4917680274345">Anrufen</a>
-      <a class="btn primary" href="https://wa.me/4917680274345">WhatsApp</a>
-    </div>
-  </div>
-</div>
+  <header>
+    <div><strong>GR</strong> Clean</div>
+    <nav>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#preise">Preise</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
 
-<header class="hero">
-  <div class="wrap cols">
-    <div>
-      <h1>Sauberkeit, auf die Sie sich verlassen können – in Köln & Umgebung</h1>
-      <p class="sub">Haushalte, Büros, Geschäfte. Baureinigung, Grundreinigung, Glas-/Fensterreinigung. Angebot in 30 Min.</p>
-      <div class="grid" style="grid-template-columns:repeat(3,minmax(160px,1fr));">
-        <a class="btn primary" href="https://wa.me/4917680274345">WhatsApp</a>
-        <a class="btn" style="border-color:#94d3f6;color:var(--blue)" href="tel:+4917680274345">Anrufen</a>
-        <a class="btn" style="border-color:#94d3f6;color:var(--blue)" href="#contact">Angebot anfragen</a>
-      </div>
-      <div class="kpis">
-        <div class="card"><strong>7+</strong><br>Jahre Erfahrung</div>
-        <div class="card"><strong>4.9/5</strong><br>Kundenzufriedenheit</div>
-      </div>
-    </div>
-    <div>
-      <img src="cover.jpg" alt="Gebäudereinigung Köln – Georgi Rusev">
-    </div>
-  </div>
-</header>
+  <section class="hero">
+    <h1 class="site-title">Georgi Rusev Gebäudereinigung</h1>
+    <p class="sub">Sauberkeit & Vertrauen in Köln und Umgebung</p>
+  </section>
 
-<section>
-  <div class="wrap">
-    <h2>Leistungen</h2>
-    <div class="grid services">
-      <div class="card"><h3>Haushaltsreinigung</h3><ul class="list"><li>Einmalig & regelmäßig</li><li>Küche, Bad, Böden</li><li>Fenster & Details</li></ul></div>
-      <div class="card"><h3>Büroreinigung</h3><ul class="list"><li>Unterhaltsreinigung</li><li>Material nach Vereinbarung</li><li>Flexibler Zeitplan</li></ul></div>
-      <div class="card"><h3>Geschäftsflächen</h3><ul class="list"><li>Eröffnung/Schließung</li><li>Vitrinen & Pflege</li><li>Nach Events</li></ul></div>
-      <div class="card"><h3>Baureinigung</h3><ul class="list"><li>Baustaub & Kleber</li><li>Rahmen & Details</li><li>Endreinigung</li></ul></div>
-      <div class="card"><h3>Grundreinigung</h3><ul class="list"><li>Sanitär & Küche</li><li>Desinfektion & Detail</li><li>Schwer zugängliche Zonen</li></ul></div>
-      <div class="card"><h3>Glas-/Fensterreinigung</h3><ul class="list"><li>Innen/Außen</li><li>Rahmen & Simse</li><li>Auch im Abo</li></ul></div>
+  <section id="leistungen" class="section">
+    <h2>Unsere Leistungen</h2>
+    <div class="cards">
+      <div class="card"><h3>Haushaltsreinigung</h3><p>Küche, Bad, Fenster & Details. Einmalig oder regelmäßig.</p></div>
+      <div class="card"><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten, Material nach Vereinbarung.</p></div>
+      <div class="card"><h3>Geschäftsflächen</h3><p>Eröffnung/Schließung, Pflege, nach Events.</p></div>
+      <div class="card"><h3>Baureinigung</h3><p>Bauabschluss, Kleberreste, Details und Endreinigung.</p></div>
+      <div class="card"><h3>Glasreinigung</h3><p>Fenster, Vitrinen, Rahmen & Simse, auch im Abo.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="wrap">
+  <section id="preise" class="section">
     <h2>Preise (ab)</h2>
-    <div class="grid prices">
-      <div class="card">
-        <h3>Haushaltsreinigung</h3>
-        <div class="badge">ab 20 € / Std.</div>
-        <p>Mindestdauer 3 Std. Endpreis nach Besichtigung/Fotos.</p>
-      </div>
-      <div class="card">
-        <h3>Büros</h3>
-        <div class="badge">individuelles Angebot</div>
-        <p>Monatspreis je nach Fläche & Häufigkeit.</p>
-      </div>
-      <div class="card">
-        <h3>Baureinigung</h3>
-        <div class="badge">nach Einschätzung</div>
-        <p>Abhängig von Verschmutzung und Zugang. Beratung kostenlos.</p>
-      </div>
-      <div class="card">
-        <h3>Glas/Vitrinen</h3>
-        <div class="badge">ab 2 € / m²</div>
-        <p>Rabatte bei Abo.</p>
-      </div>
+    <div class="cards">
+      <div class="card"><h3>Haushalt</h3><p>ab 20 €/Std.<br>Mindestens 3 Std.</p></div>
+      <div class="card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
+      <div class="card"><h3>Baureinigung</h3><p>Nach Einschätzung. Beratung kostenlos.</p></div>
+      <div class="card"><h3>Glas/Vitrinen</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <div class="wrap">
-    <h2>Region</h2>
-    <p>Wir arbeiten in Köln, den umliegenden Stadtteilen und im Rheinland. Außerhalb nach Vereinbarung.</p>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
-      <span class="badge">Rechnung</span>
-      <span class="badge">Zertifizierte Reinigungsmittel</span>
-      <span class="badge">Betriebshaftpflicht</span>
-    </div>
-  </div>
-</section>
+  <section id="kontakt" class="section">
+    <h2>Kontakt</h2>
+    <p style="text-align:center;margin-bottom:15px;">📞 +49 176 80274345<br>📧 G.Rusev25@gmail.com</p>
+    <p style="text-align:center;">Schicken Sie Fotos per WhatsApp für ein schnelles Angebot!</p>
+  </section>
 
-<section>
-  <div class="wrap">
-    <h2>Kundenstimmen</h2>
-    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-      <div class="card"><p>„Schnell, sauber, zuverlässig. Klare Empfehlung!“</p><small>Maria P.</small></div>
-      <div class="card"><p>„Nach der Renovierung hat alles geglänzt – top Detailarbeit.“</p><small>Ivan D.</small></div>
-      <div class="card"><p>„Gute Büroreinigung im Abo – keine fehlenden Verbrauchsmaterialien.“</p><small>Nikolai K.</small></div>
-    </div>
-  </div>
-</section>
+  <footer>
+    <p>© 2025 Georgi Rusev Gebäudereinigung · Köln</p>
+    <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+  </footer>
 
-<section id="contact">
-  <div class="wrap cta">
-    <h2>Angebot anfragen</h2>
-    <p>Schicken Sie Fotos per WhatsApp oder rufen Sie an. Schnelle Rückmeldung zu Arbeitszeiten.</p>
-    <p>
-      <a class="btn primary" href="https://wa.me/4917680274345">WhatsApp</a>
-      <a class="btn" style="background:#fff;color:var(--blue)" href="tel:+4917680274345">Anrufen</a>
-      <a class="btn" style="background:#fff;color:var(--blue)" href="mailto:G.Rusev25@gmail.com">E-Mail</a>
-    </p>
-    <form action="https://formspree.io/f/DEIN_CODE" method="POST" style="max-width:700px;margin:16px auto 0;display:grid;gap:10px;">
-      <input name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="E-Mail">
-      <input name="phone" placeholder="Telefon" required>
-      <textarea name="msg" rows="4" placeholder="Objektbeschreibung / m² / Leistung" required></textarea>
-      <button class="btn" style="background:#fff;color:var(--blue)" type="submit">Senden</button>
-    </form>
-    <small>Mit dem Senden stimmen Sie der Verarbeitung Ihrer Daten zur Angebotserstellung zu.</small>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p><strong>Georgi Rusev Gebäudereinigung</strong> · Köln</p>
-    <p>Tel.: <a href="tel:+4917680274345">+49 176 80274345</a> · E-Mail: <a href="mailto:G.Rusev25@gmail.com">G.Rusev25@gmail.com</a></p>
-    <p>© <span id="y"></span> Georgi Rusev Gebäudereinigung</p>
-  </div>
-</footer>
-
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
