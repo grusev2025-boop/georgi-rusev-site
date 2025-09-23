@@ -1,173 +1,138 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Georgi Rusev Gebäudereinigung</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushaltsreinigung, Büroreinigung, Glas- & Baureinigung. Schnell, zuverlässig & fair.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushaltsreinigung, Büroreinigung, Glas- & Baureinigung. Schnell, zuverlässig & fair." />
+  <meta name="theme-color" content="#0b6acb" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root{
       --blue:#0b6acb;
+      --blue2:#3aa0ff;
       --light:#f4f9ff;
       --max:1200px;
     }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif;}
-    body{background:var(--light);color:#222;line-height:1.6;}
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--light);color:#222;line-height:1.6;scroll-behavior:smooth}
 
-    /* --- NAV --- */
+    /* ===== NAV ===== */
     header{
-      background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
-      position:sticky;
-      top:0;
-      z-index:1000;
+      position:sticky; top:0; z-index:1000;
+      background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05);
     }
     .nav{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:12px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+      max-width:var(--max); margin:0 auto; padding:12px 20px;
+      display:flex; align-items:center; justify-content:space-between;
     }
     .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
-      font-size:clamp(20px,2.8vw,28px);
+      display:flex; align-items:center; gap:10px; cursor:default;
+      font-weight:800; font-size:clamp(20px,2.8vw,28px);
       background:linear-gradient(90deg,#0b6acb,#3aa0ff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      animation:shine 6s linear infinite;
-      background-size:200% auto;
-      cursor:default;
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      animation:shine 6s linear infinite; background-size:200% auto;
     }
-    .logo i{color:#0b6acb;font-size:24px;}
-    @keyframes shine{to{background-position:200% center;}}
+    .logo i{color:var(--blue); font-size:24px}
+    @keyframes shine { to { background-position:200% center } }
 
-    .menu{
-      display:flex;
-      gap:25px;
-    }
-    .menu a{
-      text-decoration:none;
-      color:#333;
-      font-weight:600;
-      transition:.3s;
-    }
-    .menu a:hover{color:var(--blue);}
+    .menu{display:flex; gap:25px; align-items:center}
+    .menu a{color:#333; text-decoration:none; font-weight:600; transition:.25s}
+    .menu a:hover{color:var(--blue)}
 
-    /* --- HERO --- */
+    /* Hamburger (скрит на десктоп) */
+    .menu-toggle{display:none; font-size:26px; color:var(--blue); cursor:pointer}
+
+    /* ===== HERO ===== */
     .hero{
-      min-height:70vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:#fff;
-      position:relative;
+      min-height:70vh; position:relative; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center; color:#fff; padding:24px;
       background:url('hero-office.png?v=2') center/cover no-repeat;
     }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.35);
-    }
-    .hero *{position:relative;z-index:1;}
-    .hero h1{font-size:clamp(26px,5vw,48px);margin-bottom:10px;}
-    .hero p{font-size:clamp(16px,2vw,20px);margin-bottom:20px;}
-    .hero .btns{display:flex;gap:15px;flex-wrap:wrap;justify-content:center;}
+    .hero::after{content:""; position:absolute; inset:0; background:rgba(0,0,0,.32)}
+    .hero *{position:relative; z-index:1}
+    .hero h1{font-size:clamp(26px,5vw,48px); margin:0 0 10px}
+    .hero p{font-size:clamp(15px,2.2vw,20px); margin:0 0 20px}
+    .btns{display:flex; gap:14px; flex-wrap:wrap; justify-content:center}
     .btn{
-      background:#fff;
-      color:var(--blue);
-      padding:10px 18px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
-      transition:.3s;
+      background:#fff; color:var(--blue); padding:10px 18px; border-radius:8px;
+      text-decoration:none; font-weight:700; transition:.25s; border:1px solid #e6eef7;
     }
-    .btn:hover{background:var(--blue);color:#fff;}
+    .btn:hover{background:var(--blue); color:#fff}
 
-    /* --- Sections --- */
-    section{max-width:var(--max);margin:60px auto;padding:0 20px;}
-    h2{text-align:center;margin-bottom:30px;font-size:clamp(22px,4vw,32px);color:var(--blue);}
-    .grid{display:grid;gap:20px;}
-    .services,.prices{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    /* ===== SECTIONS ===== */
+    section{max-width:var(--max); margin:60px auto; padding:0 20px}
+    h2{text-align:center; color:var(--blue); font-size:clamp(22px,4vw,32px); margin:0 0 26px}
+    .grid{display:grid; gap:20px}
+    .services,.prices{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .card{
-      background:#fff;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 3px 6px rgba(0,0,0,0.05);
-      transition:.3s;
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 3px 8px rgba(0,0,0,.06); transition:.25s; border:1px solid #eef4fb;
     }
-    .card:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,0.1);}
-    .card i{color:var(--blue);margin-bottom:10px;font-size:22px;}
+    .card:hover{transform:translateY(-4px); box-shadow:0 8px 16px rgba(0,0,0,.10)}
+    .card i{color:var(--blue); margin-bottom:8px; font-size:22px; display:inline-block}
 
-    /* --- Form --- */
-    .form-section{
-      background:linear-gradient(135deg,#0b6acb,#3aa0ff);
-      color:#fff;
-      padding:60px 20px;
-    }
+    /* ===== FORM ===== */
+    .form-section{background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; padding:60px 20px}
     .form-box{
-      background:#fff;
-      color:#000;
-      max-width:600px;
-      margin:auto;
-      padding:25px;
-      border-radius:12px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      background:#fff; color:#000; max-width:640px; margin:auto; padding:26px; border-radius:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,.18)
     }
-    .form-box h2{text-align:center;margin-bottom:20px;color:var(--blue);}
-    form{display:grid;gap:15px;}
+    .form-box h3{margin:0 0 14px; color:var(--blue)}
+    form{display:grid; gap:14px}
     input,textarea{
-      padding:12px;
-      border:1px solid #ccc;
-      border-radius:6px;
-      font-size:15px;
-      width:100%;
+      width:100%; padding:12px; border:1px solid #d8e5f5; border-radius:8px; font-size:15px
     }
-    button{
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      background:var(--blue);
-      color:#fff;
-      font-weight:600;
-      cursor:pointer;
-      transition:.3s;
+    button[type="submit"]{
+      background:var(--blue); color:#fff; padding:12px 16px; border:none; border-radius:8px;
+      font-weight:700; cursor:pointer; transition:.25s
     }
-    button:hover{background:#094f94;}
+    button[type="submit"]:hover{background:#094f94}
 
-    /* --- Footer --- */
+    /* ===== FOOTER ===== */
     footer{
-      background:#fff;
-      text-align:center;
-      padding:30px 15px;
-      font-size:14px;
-      color:#555;
-      border-top:1px solid #eee;
+      background:#fff; text-align:center; padding:30px 15px; font-size:14px; color:#555; border-top:1px solid #eef2f7
     }
-    footer a{color:var(--blue);text-decoration:none;margin:0 6px;}
-    footer a:hover{text-decoration:underline;}
-    .contact-icons{margin:15px 0;display:flex;flex-direction:column;gap:6px;align-items:center;}
-    .contact-icons a{color:#333;text-decoration:none;}
-    .contact-icons i{margin-right:6px;color:var(--blue);}
+    footer a{color:var(--blue); text-decoration:none; margin:0 6px}
+    footer a:hover{text-decoration:underline}
+    .contact-icons{margin:15px 0; display:flex; flex-direction:column; gap:6px; align-items:center}
+    .contact-icons a{color:#333; text-decoration:none}
+    .contact-icons i{margin-right:6px; color:var(--blue)}
+
+    /* ===== RESPONSIVE ===== */
+    /* до 900px: hamburger меню */
+    @media (max-width:900px){
+      .menu{display:none; position:absolute; right:20px; top:64px; flex-direction:column; gap:14px;
+            background:#fff; padding:14px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.15)}
+      .menu.active{display:flex}
+      .menu-toggle{display:block}
+    }
+    /* телефони до 600px: шрифтове/бутони една идея по-малки */
+    @media (max-width:600px){
+      .hero h1{font-size:24px}
+      .hero p{font-size:15px}
+      .btn{padding:8px 14px; font-size:14px}
+      .card{padding:16px}
+      h2{font-size:22px}
+    }
+    /* много големи екрани */
+    @media (min-width:1400px){
+      body{font-size:18px}
+      .hero h1{font-size:56px}
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <header>
     <div class="nav">
       <div class="logo">
-        <i class="fas fa-broom"></i> Georgi Rusev Gebäudereinigung
+        <i class="fas fa-broom" aria-hidden="true"></i>
+        <span>Georgi Rusev Gebäudereinigung</span>
       </div>
-      <nav class="menu">
+      <i class="fas fa-bars menu-toggle" aria-label="Menü öffnen"></i>
+      <nav class="menu" aria-label="Hauptmenü">
         <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
         <a href="#termin">Termin</a>
@@ -176,7 +141,8 @@
     </div>
   </header>
 
-  <section class="hero">
+  <!-- HERO -->
+  <section class="hero" id="home">
     <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
     <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Min.</p>
     <div class="btns">
@@ -186,6 +152,7 @@
     </div>
   </section>
 
+  <!-- LEISTUNGEN -->
   <section id="leistungen">
     <h2>Unsere Leistungen</h2>
     <div class="grid services">
@@ -197,6 +164,7 @@
     </div>
   </section>
 
+  <!-- PREISE -->
   <section id="preise">
     <h2>Preise (ab)</h2>
     <div class="grid prices">
@@ -207,19 +175,21 @@
     </div>
   </section>
 
+  <!-- TERMIN -->
   <section id="termin" class="form-section">
     <div class="form-box">
-      <h2>Termin anfragen</h2>
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="E-Mail" required>
-        <input type="tel" placeholder="Telefon" required>
-        <textarea rows="4" placeholder="Objektbeschreibung" required></textarea>
-        <button type="submit">Anfrage senden</button>
+      <h3>Termin anfragen</h3>
+      <form onsubmit="sendWhatsApp(event)">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="E-Mail" />
+        <input type="tel" id="phone" placeholder="Telefon" />
+        <textarea id="msg" rows="4" placeholder="Objektbeschreibung"></textarea>
+        <button type="submit"><i class="fab fa-whatsapp"></i> Per WhatsApp senden</button>
       </form>
     </div>
   </section>
 
+  <!-- KONTAKT / FOOTER -->
   <footer id="kontakt">
     <div class="contact-icons">
       <a href="tel:+4917680274345"><i class="fas fa-phone"></i> +49 176 80274345</a>
@@ -227,8 +197,31 @@
       <a href="https://wa.me/4917680274345"><i class="fab fa-whatsapp"></i> WhatsApp: +49 176 80274345</a>
     </div>
     <p>&copy; 2025 Georgi Rusev Gebäudereinigung – Köln</p>
-    <a href="impressum.html">Impressum</a> | <a href="#">Datenschutz</a>
+    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
+  <script>
+    // Hamburger toggle
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.menu').classList.toggle('active');
+    });
+    // Затваряй менюто след клик на линк (на мобилни)
+    document.querySelectorAll('.menu a').forEach(a=>{
+      a.addEventListener('click', ()=>document.querySelector('.menu').classList.remove('active'));
+    });
+
+    // WhatsApp форма
+    function sendWhatsApp(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+      const text = encodeURIComponent(
+        `Termin Anfrage:\nName: ${name}\nEmail: ${email}\nTelefon: ${phone}\nBeschreibung: ${msg}`
+      );
+      window.open(`https://wa.me/4917680274345?text=${text}`, '_blank');
+    }
+  </script>
 </body>
 </html>
