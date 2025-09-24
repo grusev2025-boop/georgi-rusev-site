@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Danke – Georgi Rusev Gebäudereinigung</title>
+  <meta name="theme-color" content="#0b6acb" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body{font-family:system-ui,Segoe UI,sans-serif;background:#f6f9fe;color:#0f172a;margin:0;display:grid;place-items:center;min-height:100vh}
-    .box{background:#fff;padding:28px;border-radius:14px;border:1px solid #e6eef7;box-shadow:0 8px 20px rgba(0,0,0,.06);text-align:center}
-    a{display:inline-block;margin-top:14px;text-decoration:none;color:#0b6acb;font-weight:700}
+    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;line-height:1.6}
+
+    .wrap{max-width:var(--max);margin:0 auto;padding:40px 20px;text-align:center}
+    h1{color:var(--blue);font-size:clamp(26px,4vw,38px);margin-bottom:16px}
+    p{font-size:18px;color:#374151;margin-bottom:28px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn-home{background:var(--blue);color:#fff}
+    .btn-home:hover{background:#094f94}
+    footer{margin-top:40px;color:#6b7280;font-size:14px}
+    footer a{color:var(--blue);text-decoration:none}
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Danke!</h1>
-    <p>Wir haben Ihre Anfrage erhalten und melden uns so schnell wie möglich.</p>
-    <a href="index.html">Zur Startseite</a>
-  </div>
+
+<div class="wrap">
+  <i class="fas fa-check-circle" style="font-size:64px;color:var(--blue)"></i>
+  <h1>Vielen Dank für Ihre Anfrage!</h1>
+  <p>Wir haben Ihre Angaben erhalten und melden uns in Kürze telefonisch oder per E-Mail bei Ihnen.</p>
+  <a href="index.html" class="btn btn-home"><i class="fas fa-home"></i> Zur Startseite</a>
+</div>
+
+<footer>
+  © 2025 Georgi Rusev Gebäudereinigung · Köln · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
 </body>
 </html>
