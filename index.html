@@ -1,55 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Georgi Rusev Gebäudereinigung – Köln</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung: Haushalt, Büro, Glas, Bauendreinigung und mehr. Angebot in 30 Minuten.">
-  <meta name="theme-color" content="#0b6acb">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Gebäudereinigung Köln – Haushalts-, Büro-, Glas-, Treppenhaus- & Baureinigung. Schnell & zuverlässig. Angebot in 30 Min." />
+  <meta name="theme-color" content="#0b6acb" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
-
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:#111827; line-height:1.6; }
+    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;line-height:1.6}
 
     /* NAV */
-    header { position:sticky; top:0; z-index:20; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); }
-    .nav { max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
-    .logo { display:flex; align-items:center; gap:10px; font-weight:800;
-      background:linear-gradient(90deg,#0b6acb,#3aa0ff);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      font-size:clamp(18px,2.4vw,24px); }
-    .toggle { display:none; font-size:26px; color:var(--blue); cursor:pointer; }
-    .menu { display:flex; gap:22px; align-items:center; }
-    .menu a { text-decoration:none; color:var(--blue); font-weight:700; padding:8px 14px; border-radius:6px; transition:0.3s; }
-    .menu a:hover { background:var(--blue); color:#fff; }
+    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;
+      background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+      font-size:clamp(18px,2.4vw,24px)}
+    .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{text-decoration:none;color:#374151;font-weight:700}
+    .menu a:hover{color:#0b6acb}
     @media (max-width:860px){
-      .toggle { display:block; }
-      .menu { display:none; position:absolute; right:20px; top:60px; background:#fff; border:1px solid #e6eef7; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.12); padding:12px; flex-direction:column; gap:10px; }
-      .menu.active { display:flex; }
+      .toggle{display:block}
+      .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
+      .menu.active{display:flex}
     }
 
     /* HERO */
-    .hero { position:relative; background:url('hero-office.png') center/cover no-repeat; color:#fff; text-align:center; padding:80px 20px; }
-    .hero::before { content:""; position:absolute; inset:0; background:rgba(11,106,203,.6); }
-    .hero .wrap { position:relative; max-width:var(--max); margin:0 auto; }
-    .hero h1 { margin:0 0 12px; font-size:clamp(26px,4.5vw,42px); font-weight:800; }
-    .hero p { margin:0; font-size:18px; }
+    .hero{position:relative;height:400px;background:url('hero-office.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.45)}
+    .hero .inner{position:relative;z-index:2;max-width:800px;padding:20px}
+    .hero h1{margin:0;font-size:clamp(24px,4.5vw,42px);font-weight:800}
+    .hero p{margin:10px 0 20px;font-size:18px}
+    .hero .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .hero .btn{padding:12px 20px;border-radius:10px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-whatsapp{background:#25d366;color:#fff}
+    .btn-call{background:#0b6acb;color:#fff}
+    .btn-offer{background:#fff;color:#0b6acb}
 
-    /* SECTIONS */
-    section { max-width:var(--max); margin:60px auto; padding:0 20px; text-align:center; }
-    h2.section-title { background:var(--blue); color:#fff; padding:10px 18px; border-radius:8px; display:inline-block; margin-bottom:30px; font-size:22px; }
+    /* SECTION */
+    section{max-width:var(--max);margin:40px auto;padding:0 20px}
+    h2{color:#0b6acb;text-align:center;margin-bottom:20px}
 
-    /* Cards */
-    .cards { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
-    .card { background:#fff; border:1px solid #d8e5f5; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,.08); transition:0.3s; }
-    .card:hover { transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
-    .card i { font-size:26px; color:var(--blue); margin-bottom:12px; }
+    /* CARDS */
+    .grid{display:grid;gap:16px}
+    .g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);text-align:center}
+    .card i{font-size:26px;color:#0b6acb;margin-bottom:10px}
+
+    /* SCHNELL ANGEBOT */
+    .schnell{background:#0b6acb;color:#fff;padding:30px 20px;border-radius:14px;max-width:700px;margin:40px auto}
+    .schnell h2{color:#fff;margin-bottom:16px}
+    .schnell form{display:grid;gap:12px}
+    .schnell input,.schnell select{padding:12px;border-radius:8px;border:none;font-size:16px}
+    .schnell button{padding:12px;border:none;border-radius:8px;background:#fff;color:#0b6acb;font-weight:700;font-size:16px;cursor:pointer}
+    .schnell button:hover{background:#f0f4ff}
 
     /* FOOTER */
-    footer { background:#0b6acb; color:#fff; padding:30px 20px; text-align:center; font-size:14px; margin-top:60px; }
-    footer a { color:#fff; text-decoration:underline; }
+    footer{margin-top:50px;padding:20px;text-align:center;background:#0b6acb;color:#fff}
+    footer a{color:#fff;text-decoration:none}
   </style>
 </head>
 <body>
@@ -67,28 +78,36 @@
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="wrap">
+  <div class="inner">
     <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
     <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Minuten.</p>
+    <div class="actions">
+      <a href="https://wa.me/4917680274345" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:+4917680274345" class="btn btn-call"><i class="fas fa-phone"></i> Anrufen</a>
+      <a href="angebot.html" class="btn btn-offer"><i class="fas fa-file-signature"></i> Termin anfragen</a>
+    </div>
   </div>
 </section>
 
+<!-- LEISTUNGEN -->
 <section id="leistungen">
-  <h2 class="section-title">Unsere Leistungen</h2>
-  <div class="cards">
+  <h2>Unsere Leistungen</h2>
+  <div class="grid g4">
     <div class="card"><i class="fas fa-home"></i><h3>Haushaltsreinigung</h3><p>Küche, Bad, Böden, Fenster & Details.</p></div>
     <div class="card"><i class="fas fa-building"></i><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten.</p></div>
     <div class="card"><i class="fas fa-store"></i><h3>Geschäftsflächen</h3><p>Eröffnung, Pflege, Events.</p></div>
-    <div class="card"><i class="fas fa-tools"></i><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div>
+    <div class="card"><i class="fas fa-hammer"></i><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div>
     <div class="card"><i class="fas fa-stairs"></i><h3>Treppenhaus</h3><p>Regelmäßige Treppenhausreinigung.</p></div>
     <div class="card"><i class="fas fa-glass-water"></i><h3>Glasreinigung</h3><p>Fenster, Vitrinen, Rahmen & Simse.</p></div>
   </div>
 </section>
 
+<!-- PREISE -->
 <section id="preise">
-  <h2 class="section-title">Preise (ab)</h2>
-  <div class="cards">
+  <h2>Preise (ab)</h2>
+  <div class="grid g4">
     <div class="card"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
     <div class="card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
     <div class="card"><h3>Baureinigung</h3><p>Nach Einschätzung. Beratung kostenlos.</p></div>
@@ -96,11 +115,33 @@
   </div>
 </section>
 
+<!-- SCHNELL ANGEBOT -->
+<section class="schnell">
+  <h2>Schnell-Angebot</h2>
+  <form action="https://formspree.io/f/xovkqzwa" method="POST">
+    <input type="text" name="Name" placeholder="Ihr Name *" required />
+    <input type="tel" name="Telefon" placeholder="Telefonnummer *" required />
+    <input type="text" name="PLZ/Stadt" placeholder="PLZ / Stadt" />
+    <select name="Leistung">
+      <option value="">Leistung auswählen…</option>
+      <option>Haushaltsreinigung</option>
+      <option>Büroreinigung</option>
+      <option>Glasreinigung</option>
+      <option>Treppenhausreinigung</option>
+      <option>Baureinigung</option>
+    </select>
+    <button type="submit">Anfrage absenden</button>
+  </form>
+</section>
+
+<!-- KONTAKT -->
 <section id="kontakt">
-  <h2 class="section-title">Kontakt</h2>
-  <p><i class="fas fa-phone"></i> +49 176 80274345<br>
-  <i class="fas fa-envelope"></i> g.rusev2025@gmail.com<br>
-  <i class="fab fa-whatsapp"></i> WhatsApp: +49 176 80274345</p>
+  <h2>Kontakt</h2>
+  <p style="text-align:center">
+    📞 +49 176 80274345<br>
+    📧 g.rusev2025@gmail.com<br>
+    💬 WhatsApp: +49 176 80274345
+  </p>
 </section>
 
 <footer>
@@ -110,9 +151,8 @@
 </footer>
 
 <script>
-  document.querySelector('.toggle').addEventListener('click', () => {
-    document.querySelector('.menu').classList.toggle('active');
-  });
+  // Burger Menü
+  document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
 </script>
 
 </body>
