@@ -93,14 +93,14 @@
 
 <section class="wrap">
   <div class="card">
-    <form id="offerForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
-      <!-- 🔑 Твоят ключ -->
-      <input type="hidden" name="access_key" value="0b69ce5c-5e8a-4a9c-beaa-96902b31e643">
-      <input type="hidden" name="to_email" value="g.rusev2025@gmail.com">
-      <input type="hidden" name="from_name" value="Website Angebot">
-      <input type="hidden" name="subject" value="Angebot Anfrage – Website">
-      <input type="hidden" name="redirect" value="danke.html">
-      <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+    <!-- Formspree: директен POST към твоя endpoint -->
+    <form id="offerForm" action="https://formspree.io/f/xovkqzwa" method="POST" novalidate>
+      <!-- subject + красив шаблон + redirect след успех -->
+      <input type="hidden" name="_subject" value="Angebot Anfrage – Website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_redirect" value="danke.html">
+      <!-- honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
 
       <!-- 1) Kontakt -->
       <h2 class="sec">1) Kontaktdaten</h2>
@@ -252,7 +252,10 @@
 </footer>
 
 <script>
+  // burger
   document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
+
+  // Date mask TT.MM.JJJJ
   const d = document.getElementById('datum');
   if (d) {
     d.addEventListener('input', e => {
@@ -262,11 +265,14 @@
       e.target.value = v;
     });
   }
+
+  // Клиентска проверка за име/тел. и consent (предпазва от празни POST-ове)
   document.getElementById('offerForm').addEventListener('submit', function(e){
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const consent = document.getElementById('consent').checked;
     const note = document.getElementById('formNote');
+
     if(!name || !phone || !consent){
       e.preventDefault();
       note.className = 'form-note err';
@@ -275,7 +281,9 @@
     }
     note.className = 'form-note ok';
     note.textContent = 'Sende Anfrage…';
+    // После браузърът POST-ва към Formspree -> redirect към danke.html
   });
 </script>
 </body>
 </html>
+
