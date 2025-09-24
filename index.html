@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Georgi Rusev Gebäudereinigung – Köln & Umgebung</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung: Haushalts-, Büro-, Glas-, Treppenhaus- & Baureinigung. Jetzt kostenloses Angebot anfordern!" />
+  <title>Georgi Rusev Gebäudereinigung – Köln</title>
+  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushalts-, Büro-, Fenster-, Glas- & Baureinigung. Schnell & zuverlässig." />
   <meta name="theme-color" content="#0b6acb" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -13,75 +13,58 @@
     body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;line-height:1.6}
 
     /* NAV */
-    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.06)}
     .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
     .logo{display:flex;align-items:center;gap:10px;font-weight:800;
       background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
       font-size:clamp(18px,2.4vw,24px)}
+    .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
     .menu{display:flex;gap:22px;align-items:center}
-    .menu a{text-decoration:none;color:#374151;font-weight:700;transition:.2s}
-    .menu a:hover{color:var(--blue)}
+    .menu a{text-decoration:none;color:#374151;font-weight:700}
+    .menu a:hover{color:#0b6acb}
+    @media (max-width:860px){
+      .toggle{display:block}
+      .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
+      .menu.active{display:flex}
+    }
 
     /* HERO */
-    .hero{position:relative;overflow:hidden}
-    .hero img{width:100%;height:400px;object-fit:cover}
-    .hero .overlay{position:absolute;top:0;left:0;width:100%;height:100%;
-      display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;color:#fff}
-    .hero h1{font-size:clamp(26px,4vw,42px);margin-bottom:10px;text-shadow:0 2px 6px rgba(0,0,0,.6)}
-    .hero p{text-shadow:0 2px 6px rgba(0,0,0,.6);margin-bottom:16px}
+    .hero{position:relative;height:400px;background:url('hero-office.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.25)} /* леко затъмняване */
+    .hero .wrap{position:relative;z-index:2;max-width:var(--max);padding:0 20px}
+    .hero h1{margin:0 0 12px;font-size:clamp(24px,4.2vw,42px)}
+    .hero p{margin:0 0 20px;opacity:.95}
     .hero .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-    .hero .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;transition:.2s}
-    .hero .btn i{font-size:18px}
-    .hero .btn-green{background:#25d366;color:#fff}
-    .hero .btn-green:hover{background:#1eb346}
-    .hero .btn-blue{background:var(--blue);color:#fff}
-    .hero .btn-blue:hover{background:#094f94}
-    .hero .btn-dark{background:#111827;color:#fff}
-    .hero .btn-dark:hover{background:#333}
+    .hero .btn{padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+    .btn-green{background:#25d366;color:#fff}
+    .btn-blue{background:#0b6acb;color:#fff}
+    .btn-dark{background:#111827;color:#fff}
 
-    /* SECTION */
-    section{padding:40px 20px;max-width:var(--max);margin:0 auto;text-align:center}
-
+    /* SECTION HEADINGS */
     .section-title{
       display:inline-block;
-      padding:8px 18px;
-      font-size:20px;
-      font-weight:700;
+      background:#0b6acb;
       color:#fff;
-      background:var(--blue);
-      border:2px solid var(--blue);
-      border-radius:8px;
-      margin:0 auto 28px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.15);
-      transition:all 0.3s ease;
-    }
-    .section-title:hover{
-      background:var(--blue2);
-      border-color:var(--blue2);
-      box-shadow:0 4px 12px rgba(0,0,0,0.25);
-      transform:scale(1.05);
-      cursor:pointer;
+      padding:6px 18px;
+      border-radius:20px;
+      font-weight:700;
+      margin:40px 0 20px;
     }
 
     /* CARDS */
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
     .cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;padding:20px;box-shadow:0 4px 10px rgba(0,0,0,.06);transition:all 0.3s ease}
-    .card:hover{transform:translateY(-5px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
-    .card i{font-size:26px;color:var(--blue);margin-bottom:10px}
-    .card h3{margin-bottom:6px;font-size:18px;color:#111827}
+    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:22px;text-align:center}
+    .card i{font-size:28px;color:#0b6acb;margin-bottom:8px}
 
     /* SCHNELL-ANGEBOT */
-    .angebot{background:var(--blue);color:#fff;border-radius:14px;padding:30px;margin-top:20px;box-shadow:0 6px 16px rgba(0,0,0,.12)}
-    .angebot h2{margin-bottom:16px}
-    .angebot form{display:grid;gap:14px;max-width:500px;margin:0 auto}
-    .angebot input,.angebot select{padding:12px;border:none;border-radius:8px;font-size:16px}
-    .angebot button{padding:12px;border:none;border-radius:8px;font-weight:700;background:#111827;color:#fff;transition:.2s;cursor:pointer}
-    .angebot button:hover{background:#333}
+    .quick{background:#0b6acb;color:#fff;border-radius:14px;padding:22px;margin:40px 0}
+    .quick h2{margin:0 0 12px;text-align:center}
+    .quick input, .quick select{width:100%;padding:12px;border:none;border-radius:8px;margin-bottom:12px}
+    .quick button{width:100%;padding:12px;border:none;border-radius:8px;background:#111827;color:#fff;font-weight:700;cursor:pointer}
 
-    /* FOOTER */
-    footer{background:var(--blue);color:#fff;text-align:center;padding:20px;margin-top:40px}
-    footer a{color:#fff;text-decoration:underline}
-
+    footer{margin:26px 0 40px;text-align:center;color:#6b7280;font-size:14px}
+    footer a{color:#0b6acb;text-decoration:none}
   </style>
 </head>
 <body>
@@ -89,6 +72,7 @@
 <header>
   <div class="nav">
     <div class="logo"><i class="fas fa-broom" style="color:#0b6acb"></i> Georgi Rusev Gebäudereinigung</div>
+    <i class="fas fa-bars toggle"></i>
     <nav class="menu">
       <a href="#leistungen">Leistungen</a>
       <a href="#preise">Preise</a>
@@ -99,8 +83,7 @@
 </header>
 
 <section class="hero">
-  <img src="hero-office.png" alt="Gebäudereinigung Köln" />
-  <div class="overlay">
+  <div class="wrap">
     <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
     <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Minuten.</p>
     <div class="actions">
@@ -111,53 +94,51 @@
   </div>
 </section>
 
-<section id="leistungen">
-  <h2 class="section-title">Unsere Leistungen</h2>
+<div class="wrap">
+  <h2 id="leistungen" class="section-title">Unsere Leistungen</h2>
   <div class="cards">
     <div class="card"><i class="fas fa-home"></i><h3>Haushaltsreinigung</h3><p>Küche, Bad, Böden, Fenster & Details.</p></div>
     <div class="card"><i class="fas fa-briefcase"></i><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten.</p></div>
     <div class="card"><i class="fas fa-store"></i><h3>Geschäftsflächen</h3><p>Eröffnung, Pflege, Events.</p></div>
     <div class="card"><i class="fas fa-hammer"></i><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div>
     <div class="card"><i class="fas fa-stairs"></i><h3>Treppenhaus</h3><p>Regelmäßige Treppenhausreinigung.</p></div>
-    <div class="card"><i class="fas fa-glass-water"></i><h3>Glasreinigung</h3><p>Fenster, Vitrinen, Rahmen & Simse.</p></div>
+    <div class="card"><i class="fas fa-window-maximize"></i><h3>Fensterreinigung</h3><p>Fenster, Vitrinen, Rahmen.</p></div>
   </div>
-</section>
 
-<section id="preise">
-  <h2 class="section-title">Preise (ab)</h2>
+  <h2 id="preise" class="section-title">Preise (ab)</h2>
   <div class="cards">
     <div class="card"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
     <div class="card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
     <div class="card"><h3>Baureinigung</h3><p>Nach Einschätzung, Beratung kostenlos.</p></div>
     <div class="card"><h3>Glas/Vitrinen</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
   </div>
-</section>
 
-<section class="angebot">
-  <h2>Schnell-Angebot</h2>
-  <form action="https://formspree.io/f/xovkqzwa" method="POST">
-    <input type="text" name="Name" placeholder="Ihr Name *" required>
-    <input type="tel" name="Telefonnummer" placeholder="Telefonnummer *" required>
-    <input type="text" name="PLZ/Stadt" placeholder="PLZ / Stadt">
-    <select name="Leistung" required>
-      <option value="">Leistung auswählen…</option>
-      <option>Haushaltsreinigung</option>
-      <option>Büroreinigung</option>
-      <option>Glasreinigung</option>
-      <option>Treppenhaus</option>
-      <option>Baureinigung</option>
-      <option>Geschäftsflächen</option>
-    </select>
-    <button type="submit">Anfrage absenden</button>
-  </form>
-</section>
+  <div class="quick">
+    <h2>Schnell-Angebot</h2>
+    <form>
+      <input type="text" placeholder="Ihr Name *" required />
+      <input type="tel" placeholder="Telefonnummer *" required />
+      <input type="text" placeholder="PLZ / Stadt" />
+      <select required>
+        <option>Leistung auswählen…</option>
+        <option>Haushaltsreinigung</option>
+        <option>Büroreinigung</option>
+        <option>Geschäftsflächen</option>
+        <option>Baureinigung</option>
+        <option>Treppenhaus</option>
+        <option>Fensterreinigung</option>
+      </select>
+      <button type="submit">Anfrage absenden</button>
+    </form>
+  </div>
 
-<section id="kontakt">
-  <h2 class="section-title">Kontakt</h2>
-  <p>📞 +49 176 80274345<br>
-     ✉️ g.rusev2025@gmail.com<br>
-     💬 WhatsApp: +49 176 80274345</p>
-</section>
+  <h2 id="kontakt" class="section-title">Kontakt</h2>
+  <p style="text-align:center;margin-top:10px">
+    📞 +49 176 80274345 <br>
+    ✉️ grusev2025@gmail.com <br>
+    💬 WhatsApp: +49 176 80274345
+  </p>
+</div>
 
 <footer>
   © 2025 Georgi Rusev Gebäudereinigung · Köln · 
@@ -165,5 +146,8 @@
   <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
+<script>
+  document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
+</script>
 </body>
 </html>
