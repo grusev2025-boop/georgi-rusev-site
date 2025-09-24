@@ -1,298 +1,119 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Georgi Rusev Gebäudereinigung – Köln & Umgebung</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushaltsreinigung, Büroreinigung, Glas- & Baureinigung. Schnelle Rückmeldung und faire Preise." />
-  <meta name="theme-color" content="#0b6acb" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Georgi Rusev Gebäudereinigung – Köln</title>
+  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung: Haushalt, Büro, Glas, Bauendreinigung und mehr. Angebot in 30 Minuten.">
+  <meta name="theme-color" content="#0b6acb">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --light:#f4f9ff; --max:1200px; }
-    *{box-sizing:border-box}
-    html,body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--light);color:#222;line-height:1.6;scroll-behavior:smooth}
+    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:#111827; line-height:1.6; }
 
     /* NAV */
-    header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
-    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:10px;cursor:default;font-weight:800;font-size:clamp(20px,2.8vw,28px);
-      background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
-      animation:shine 6s linear infinite;background-size:200% auto}
-    .logo i{color:var(--blue);font-size:24px}
-    @keyframes shine{to{background-position:200% center}}
-    .menu{display:flex;gap:25px;align-items:center}
-    .menu a{text-decoration:none;color:#333;font-weight:600;transition:.25s}
-    .menu a:hover{color:var(--blue)}
-    .menu-toggle{display:none;font-size:26px;color:var(--blue);cursor:pointer}
+    header { position:sticky; top:0; z-index:20; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+    .nav { max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; align-items:center; gap:10px; font-weight:800;
+      background:linear-gradient(90deg,#0b6acb,#3aa0ff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      font-size:clamp(18px,2.4vw,24px); }
+    .toggle { display:none; font-size:26px; color:var(--blue); cursor:pointer; }
+    .menu { display:flex; gap:22px; align-items:center; }
+    .menu a { text-decoration:none; color:var(--blue); font-weight:700; padding:8px 14px; border-radius:6px; transition:0.3s; }
+    .menu a:hover { background:var(--blue); color:#fff; }
+    @media (max-width:860px){
+      .toggle { display:block; }
+      .menu { display:none; position:absolute; right:20px; top:60px; background:#fff; border:1px solid #e6eef7; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.12); padding:12px; flex-direction:column; gap:10px; }
+      .menu.active { display:flex; }
+    }
 
     /* HERO */
-    .hero{min-height:70vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:24px;
-      background:url('hero-office.png?v=2') center/cover no-repeat}
-    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.32)}
-    .hero *{position:relative;z-index:1}
-    .hero h1{font-size:clamp(26px,5vw,48px);margin:0 0 10px}
-    .hero p{font-size:clamp(15px,2.2vw,20px);margin:0 0 20px}
-    .btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-    .btn{background:#fff;color:var(--blue);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;transition:.25s;border:1px solid #e6eef7}
-    .btn:hover{background:var(--blue);color:#fff}
+    .hero { position:relative; background:url('hero-office.png') center/cover no-repeat; color:#fff; text-align:center; padding:80px 20px; }
+    .hero::before { content:""; position:absolute; inset:0; background:rgba(11,106,203,.6); }
+    .hero .wrap { position:relative; max-width:var(--max); margin:0 auto; }
+    .hero h1 { margin:0 0 12px; font-size:clamp(26px,4.5vw,42px); font-weight:800; }
+    .hero p { margin:0; font-size:18px; }
 
     /* SECTIONS */
-    section{max-width:var(--max);margin:60px auto;padding:0 20px}
-    h2{text-align:center;color:var(--blue);font-size:clamp(22px,4vw,32px);margin:0 0 26px}
-    .grid{display:grid;gap:20px}
-    .services,.prices{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,.06);transition:.25s;border:1px solid #eef4fb}
-    .card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.10)}
-    .card i{color:var(--blue);margin-bottom:8px;font-size:22px;display:inline-block}
+    section { max-width:var(--max); margin:60px auto; padding:0 20px; text-align:center; }
+    h2.section-title { background:var(--blue); color:#fff; padding:10px 18px; border-radius:8px; display:inline-block; margin-bottom:30px; font-size:22px; }
 
-    /* QUICK FORM */
-    .form-section{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:60px 20px}
-    .form-box{background:#fff;color:#000;max-width:640px;margin:auto;padding:26px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
-    .form-box h3{margin:0 0 14px;color:var(--blue)}
-    form{display:grid;gap:14px}
-    label{font-weight:600;font-size:14px}
-    input,textarea{width:100%;padding:12px;border:1px solid #d8e5f5;border-radius:8px;font-size:15px}
-    .form-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
-    .btn-wa{background:#25D366;color:#fff}
-    .btn-wa:hover{background:#1fb257}
-    .btn-mail{background:#0078d7;color:#fff}
-    .btn-mail:hover{background:#0a66c2}
-    .btn-outline{background:#fff;color:var(--blue);border:1px solid #cfe3ff}
+    /* Cards */
+    .cards { display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .card { background:#fff; border:1px solid #d8e5f5; border-radius:12px; padding:20px; box-shadow:0 4px 12px rgba(0,0,0,.08); transition:0.3s; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
+    .card i { font-size:26px; color:var(--blue); margin-bottom:12px; }
 
     /* FOOTER */
-    footer{background:#fff;text-align:center;padding:30px 15px;font-size:14px;color:#555;border-top:1px solid #eef2f7}
-    footer a{color:var(--blue);text-decoration:none;margin:0 6px}
-    footer a:hover{text-decoration:underline}
-    .contact-icons{margin:15px 0;display:flex;flex-direction:column;gap:6px;align-items:center}
-    .contact-icons a{color:#333;text-decoration:none}
-    .contact-icons i{margin-right:6px;color:var(--blue)}
-
-    /* CONSENT BANNER */
-    .consent {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
-      background: #0b6acb; color: #fff; padding: 14px 16px;
-      display: none; /* показва се с JS ако няма избор */
-      box-shadow: 0 -6px 20px rgba(0,0,0,.25);
-    }
-    .consent .inner {
-      max-width: var(--max); margin: 0 auto; display: grid; gap: 10px; align-items: center;
-      grid-template-columns: 1fr auto; 
-    }
-    .consent p { margin: 0; font-size: 14px }
-    .consent a { color: #fff; text-decoration: underline }
-    .consent .actions { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end }
-    .consent .btn-mini {
-      background:#fff; color:#0b6acb; border:0; border-radius:8px; padding:8px 12px; font-weight:800; cursor:pointer;
-    }
-    .consent .btn-ghost {
-      background:transparent; color:#fff; border:1px solid rgba(255,255,255,.65);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width:900px){
-      .menu{display:none;position:absolute;right:20px;top:64px;flex-direction:column;gap:14px;background:#fff;padding:14px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.15)}
-      .menu.active{display:flex}
-      .menu-toggle{display:block}
-      .consent .inner { grid-template-columns: 1fr }
-      .consent .actions { justify-content:flex-start }
-    }
-    @media (max-width:600px){
-      .hero h1{font-size:24px}
-      .hero p{font-size:15px}
-      .btn{padding:8px 14px;font-size:14px}
-      .card{padding:16px}
-      h2{font-size:22px}
-    }
-    @media (min-width:1400px){
-      body{font-size:18px}
-      .hero h1{font-size:56px}
-    }
+    footer { background:#0b6acb; color:#fff; padding:30px 20px; text-align:center; font-size:14px; margin-top:60px; }
+    footer a { color:#fff; text-decoration:underline; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header>
-    <div class="nav">
-      <div class="logo">
-        <i class="fas fa-broom" aria-hidden="true"></i>
-        <span>Georgi Rusev Gebäudereinigung</span>
-      </div>
-      <i class="fas fa-bars menu-toggle" aria-label="Menü"></i>
-      <nav class="menu" aria-label="Hauptmenü">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#preise">Preise</a>
-        <a href="angebot.html">Angebot</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
-    <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Min.</p>
-    <div class="btns">
-      <a href="https://wa.me/4917680274345" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="tel:+4917680274345" class="btn"><i class="fas fa-phone"></i> Anrufen</a>
-      <a href="angebot.html" class="btn"><i class="fas fa-file-signature"></i> Angebot anfordern</a>
-    </div>
-  </section>
-
-  <!-- LEISTUNGEN -->
-  <section id="leistungen">
-    <h2>Unsere Leistungen</h2>
-    <div class="grid services">
-      <div class="card"><i class="fas fa-house"></i><b>Haushaltsreinigung</b><p>Küche, Bad, Böden, Fenster & Details.</p></div>
-      <div class="card"><i class="fas fa-building"></i><b>Büroreinigung</b><p>Saubere Arbeitsplätze, flexible Zeiten, Material nach Vereinbarung.</p></div>
-      <div class="card"><i class="fas fa-store"></i><b>Geschäftsflächen</b><p>Eröffnung, Pflege, Events.</p></div>
-      <div class="card"><i class="fas fa-hammer"></i><b>Baureinigung</b><p>Bauschluss, Klebereste, Endreinigung.</p></div>
-      <div class="card"><i class="fas fa-spray-can"></i><b>Glasreinigung</b><p>Fenster, Vitrinen, Rahmen & Simse.</p></div>
-    </div>
-  </section>
-
-  <!-- PREISE -->
-  <section id="preise">
-    <h2>Preise (ab)</h2>
-    <div class="grid prices">
-      <div class="card"><b>Haushalt</b><p>ab 20 €/Std. (min. 3 Std.)</p></div>
-      <div class="card"><b>Büros</b><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
-      <div class="card"><b>Baureinigung</b><p>Nach Einschätzung, Beratung kostenlos.</p></div>
-      <div class="card"><b>Glas/Vitrinen</b><p>ab 2 €/m². Rabatte bei Abo.</p></div>
-    </div>
-  </section>
-
-  <!-- SCHNELLANFRAGE -->
-  <section id="termin" class="form-section">
-    <div class="form-box">
-      <h3>Schnellanfrage: Termin / Angebot</h3>
-      <form id="leadForm">
-        <div>
-          <label for="name">Name *</label>
-          <input type="text" id="name" required />
-        </div>
-        <div>
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" />
-        </div>
-        <div>
-          <label for="phone">Telefon</label>
-          <input type="tel" id="phone" />
-        </div>
-        <div>
-          <label for="msg">Kurzbeschreibung</label>
-          <textarea id="msg" rows="4" placeholder="Wohnung/Haus/Büro, m², gewünschte Leistung, Terminwunsch …"></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button type="button" class="btn btn-wa" onclick="sendWhatsApp()">
-            <i class="fab fa-whatsapp"></i> Per WhatsApp senden
-          </button>
-          <button type="button" class="btn btn-mail" onclick="sendEmail()">
-            <i class="fas fa-envelope"></i> Per E-Mail senden
-          </button>
-          <a href="angebot.html" class="btn btn-outline"><i class="fas fa-file-signature"></i> Ausführliche Anfrage</a>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer id="kontakt">
-    <div class="contact-icons">
-      <a href="tel:+4917680274345"><i class="fas fa-phone"></i> +49 176 80274345</a>
-      <a href="mailto:g.rusev2025@gmail.com"><i class="fas fa-envelope"></i> g.rusev2025@gmail.com</a>
-      <a href="https://wa.me/4917680274345"><i class="fab fa-whatsapp"></i> WhatsApp: +49 176 80274345</a>
-    </div>
-    <p>&copy; 2025 Georgi Rusev Gebäudereinigung – Köln</p>
-    <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
-  </footer>
-
-  <!-- CONSENT BANNER -->
-  <div class="consent" id="consent">
-    <div class="inner">
-      <p>
-        Wir verwenden nur essenzielle Cookies für die Funktionsfähigkeit der Website.
-        Optional können Sie <b>Statistik</b> erlauben, um unsere Seite zu verbessern.
-        Mehr dazu in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
-      </p>
-      <div class="actions">
-        <button class="btn-mini btn-ghost" onclick="consentChoose('deny')">Nur notwendig</button>
-        <button class="btn-mini" onclick="consentChoose('allow')">Statistik erlauben</button>
-      </div>
-    </div>
+<header>
+  <div class="nav">
+    <div class="logo"><i class="fas fa-broom"></i> Georgi Rusev Gebäudereinigung</div>
+    <i class="fas fa-bars toggle"></i>
+    <nav class="menu">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#preise">Preise</a>
+      <a href="angebot.html">Angebot</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
   </div>
+</header>
 
-  <script>
-    // hamburger
-    document.querySelector('.menu-toggle').addEventListener('click', () => {
-      document.querySelector('.menu').classList.toggle('active');
-    });
-    document.querySelectorAll('.menu a').forEach(a=>{
-      a.addEventListener('click', ()=>document.querySelector('.menu').classList.remove('active'));
-    });
+<section class="hero">
+  <div class="wrap">
+    <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
+    <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Minuten.</p>
+  </div>
+</section>
 
-    // payload helper
-    function getPayload(){
-      const name  = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const msg   = document.getElementById('msg').value.trim();
-      if(!name){ alert('Bitte Ihren Namen eingeben.'); return null; }
-      const text = `Anfrage:\nName: ${name}\nE-Mail: ${email||'-'}\nTelefon: ${phone||'-'}\nBeschreibung: ${msg||'-'}`;
-      return {text};
-    }
+<section id="leistungen">
+  <h2 class="section-title">Unsere Leistungen</h2>
+  <div class="cards">
+    <div class="card"><i class="fas fa-home"></i><h3>Haushaltsreinigung</h3><p>Küche, Bad, Böden, Fenster & Details.</p></div>
+    <div class="card"><i class="fas fa-building"></i><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten.</p></div>
+    <div class="card"><i class="fas fa-store"></i><h3>Geschäftsflächen</h3><p>Eröffnung, Pflege, Events.</p></div>
+    <div class="card"><i class="fas fa-tools"></i><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div>
+    <div class="card"><i class="fas fa-stairs"></i><h3>Treppenhaus</h3><p>Regelmäßige Treppenhausreinigung.</p></div>
+    <div class="card"><i class="fas fa-glass-water"></i><h3>Glasreinigung</h3><p>Fenster, Vitrinen, Rahmen & Simse.</p></div>
+  </div>
+</section>
 
-    function sendWhatsApp(){
-      const p = getPayload(); if(!p) return;
-      const q = encodeURIComponent(p.text);
-      window.open(`https://wa.me/4917680274345?text=${q}`, '_blank');
-    }
+<section id="preise">
+  <h2 class="section-title">Preise (ab)</h2>
+  <div class="cards">
+    <div class="card"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
+    <div class="card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
+    <div class="card"><h3>Baureinigung</h3><p>Nach Einschätzung. Beratung kostenlos.</p></div>
+    <div class="card"><h3>Glas/Vitrinen</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
+  </div>
+</section>
 
-    function sendEmail(){
-      const p = getPayload(); if(!p) return;
-      const subject = encodeURIComponent('Termin / Angebot Anfrage');
-      const body    = encodeURIComponent(p.text);
-      window.location.href = `mailto:g.rusev2025@gmail.com?subject=${subject}&body=${body}`;
-    }
+<section id="kontakt">
+  <h2 class="section-title">Kontakt</h2>
+  <p><i class="fas fa-phone"></i> +49 176 80274345<br>
+  <i class="fas fa-envelope"></i> g.rusev2025@gmail.com<br>
+  <i class="fab fa-whatsapp"></i> WhatsApp: +49 176 80274345</p>
+</section>
 
-    // ===== Consent logic =====
-    const CKEY = 'gr_consent_v1'; // ключ за локалното съхранение
+<footer>
+  © 2025 Georgi Rusev Gebäudereinigung · Köln · 
+  <a href="impressum.html">Impressum</a> · 
+  <a href="datenschutz.html">Datenschutz</a>
+</footer>
 
-    function showConsentIfNeeded(){
-      const v = localStorage.getItem(CKEY);
-      if(!v){ document.getElementById('consent').style.display = 'block'; }
-      else if(v === 'allow'){ loadAnalytics(); }
-    }
+<script>
+  document.querySelector('.toggle').addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('active');
+  });
+</script>
 
-    function consentChoose(mode){
-      localStorage.setItem(CKEY, mode);
-      document.getElementById('consent').style.display = 'none';
-      if(mode === 'allow'){ loadAnalytics(); }
-    }
-
-    // Зареждане на статистика САМО при съгласие
-    function loadAnalytics(){
-      // Тук добавяш real analytics (напр. Plausible/GA4). Пример за Plausible:
-      // const s = document.createElement('script');
-      // s.defer = true;
-      // s.setAttribute('data-domain','rusev-gebaeudereinigung.de');
-      // s.src = 'https://plausible.io/js/script.js';
-      // document.head.appendChild(s);
-
-      // За GA4 би изглеждало така (пример — добави свой ID ако решиш):
-      // const ga = document.createElement('script');
-      // ga.async = true;
-      // ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
-      // document.head.appendChild(ga);
-      // window.dataLayer = window.dataLayer || [];
-      // function gtag(){dataLayer.push(arguments);}
-      // gtag('js', new Date());
-      // gtag('config', 'G-XXXXXXX');
-    }
-
-    // стартираме
-    showConsentIfNeeded();
-  </script>
 </body>
 </html>
