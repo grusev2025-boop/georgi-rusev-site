@@ -3,119 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Georgi Rusev Gebäudereinigung</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushaltsreinigung, Büroreinigung, Glas- & Baureinigung. Schnell, zuverlässig & fair." />
+  <title>Georgi Rusev Gebäudereinigung – Köln & Umgebung</title>
+  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushaltsreinigung, Büroreinigung, Glas- & Baureinigung. Schnelle Rückmeldung und faire Preise." />
   <meta name="theme-color" content="#0b6acb" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root{
-      --blue:#0b6acb;
-      --blue2:#3aa0ff;
-      --light:#f4f9ff;
-      --max:1200px;
-    }
+    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --light:#f4f9ff; --max:1200px; }
     *{box-sizing:border-box}
     html,body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--light);color:#222;line-height:1.6;scroll-behavior:smooth}
 
-    /* ===== NAV ===== */
-    header{
-      position:sticky; top:0; z-index:1000;
-      background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.05);
-    }
-    .nav{
-      max-width:var(--max); margin:0 auto; padding:12px 20px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .logo{
-      display:flex; align-items:center; gap:10px; cursor:default;
-      font-weight:800; font-size:clamp(20px,2.8vw,28px);
-      background:linear-gradient(90deg,#0b6acb,#3aa0ff);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      animation:shine 6s linear infinite; background-size:200% auto;
-    }
-    .logo i{color:var(--blue); font-size:24px}
-    @keyframes shine { to { background-position:200% center } }
-
-    .menu{display:flex; gap:25px; align-items:center}
-    .menu a{color:#333; text-decoration:none; font-weight:600; transition:.25s}
+    /* NAV */
+    header{position:sticky;top:0;z-index:1000;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;cursor:default;font-weight:800;font-size:clamp(20px,2.8vw,28px);
+      background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+      animation:shine 6s linear infinite;background-size:200% auto}
+    .logo i{color:var(--blue);font-size:24px}
+    @keyframes shine{to{background-position:200% center}}
+    .menu{display:flex;gap:25px;align-items:center}
+    .menu a{text-decoration:none;color:#333;font-weight:600;transition:.25s}
     .menu a:hover{color:var(--blue)}
+    .menu-toggle{display:none;font-size:26px;color:var(--blue);cursor:pointer}
 
-    /* Hamburger (скрит на десктоп) */
-    .menu-toggle{display:none; font-size:26px; color:var(--blue); cursor:pointer}
+    /* HERO */
+    .hero{min-height:70vh;position:relative;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:24px;
+      background:url('hero-office.png?v=2') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.32)}
+    .hero *{position:relative;z-index:1}
+    .hero h1{font-size:clamp(26px,5vw,48px);margin:0 0 10px}
+    .hero p{font-size:clamp(15px,2.2vw,20px);margin:0 0 20px}
+    .btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .btn{background:#fff;color:var(--blue);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;transition:.25s;border:1px solid #e6eef7}
+    .btn:hover{background:var(--blue);color:#fff}
 
-    /* ===== HERO ===== */
-    .hero{
-      min-height:70vh; position:relative; display:flex; flex-direction:column;
-      justify-content:center; align-items:center; text-align:center; color:#fff; padding:24px;
-      background:url('hero-office.png?v=2') center/cover no-repeat;
-    }
-    .hero::after{content:""; position:absolute; inset:0; background:rgba(0,0,0,.32)}
-    .hero *{position:relative; z-index:1}
-    .hero h1{font-size:clamp(26px,5vw,48px); margin:0 0 10px}
-    .hero p{font-size:clamp(15px,2.2vw,20px); margin:0 0 20px}
-    .btns{display:flex; gap:14px; flex-wrap:wrap; justify-content:center}
-    .btn{
-      background:#fff; color:var(--blue); padding:10px 18px; border-radius:8px;
-      text-decoration:none; font-weight:700; transition:.25s; border:1px solid #e6eef7;
-    }
-    .btn:hover{background:var(--blue); color:#fff}
-
-    /* ===== SECTIONS ===== */
-    section{max-width:var(--max); margin:60px auto; padding:0 20px}
-    h2{text-align:center; color:var(--blue); font-size:clamp(22px,4vw,32px); margin:0 0 26px}
-    .grid{display:grid; gap:20px}
+    /* SECTIONS */
+    section{max-width:var(--max);margin:60px auto;padding:0 20px}
+    h2{text-align:center;color:var(--blue);font-size:clamp(22px,4vw,32px);margin:0 0 26px}
+    .grid{display:grid;gap:20px}
     .services,.prices{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{
-      background:#fff; padding:20px; border-radius:12px;
-      box-shadow:0 3px 8px rgba(0,0,0,.06); transition:.25s; border:1px solid #eef4fb;
-    }
-    .card:hover{transform:translateY(-4px); box-shadow:0 8px 16px rgba(0,0,0,.10)}
-    .card i{color:var(--blue); margin-bottom:8px; font-size:22px; display:inline-block}
+    .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 8px rgba(0,0,0,.06);transition:.25s;border:1px solid #eef4fb}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.10)}
+    .card i{color:var(--blue);margin-bottom:8px;font-size:22px;display:inline-block}
 
-    /* ===== FORM ===== */
-    .form-section{background:linear-gradient(135deg,var(--blue),var(--blue2)); color:#fff; padding:60px 20px}
-    .form-box{
-      background:#fff; color:#000; max-width:640px; margin:auto; padding:26px; border-radius:14px;
-      box-shadow:0 8px 20px rgba(0,0,0,.18)
-    }
-    .form-box h3{margin:0 0 14px; color:var(--blue)}
-    form{display:grid; gap:14px}
-    input,textarea{
-      width:100%; padding:12px; border:1px solid #d8e5f5; border-radius:8px; font-size:15px
-    }
-    button[type="submit"]{
-      background:var(--blue); color:#fff; padding:12px 16px; border:none; border-radius:8px;
-      font-weight:700; cursor:pointer; transition:.25s
-    }
-    button[type="submit"]:hover{background:#094f94}
+    /* QUICK FORM */
+    .form-section{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:60px 20px}
+    .form-box{background:#fff;color:#000;max-width:640px;margin:auto;padding:26px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+    .form-box h3{margin:0 0 14px;color:var(--blue)}
+    form{display:grid;gap:14px}
+    label{font-weight:600;font-size:14px}
+    input,textarea{width:100%;padding:12px;border:1px solid #d8e5f5;border-radius:8px;font-size:15px}
+    .form-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+    .btn-wa{background:#25D366;color:#fff}
+    .btn-wa:hover{background:#1fb257}
+    .btn-mail{background:#0078d7;color:#fff}
+    .btn-mail:hover{background:#0a66c2}
+    .btn-outline{background:#fff;color:var(--blue);border:1px solid #cfe3ff}
 
-    /* ===== FOOTER ===== */
-    footer{
-      background:#fff; text-align:center; padding:30px 15px; font-size:14px; color:#555; border-top:1px solid #eef2f7
-    }
-    footer a{color:var(--blue); text-decoration:none; margin:0 6px}
+    /* FOOTER */
+    footer{background:#fff;text-align:center;padding:30px 15px;font-size:14px;color:#555;border-top:1px solid #eef2f7}
+    footer a{color:var(--blue);text-decoration:none;margin:0 6px}
     footer a:hover{text-decoration:underline}
-    .contact-icons{margin:15px 0; display:flex; flex-direction:column; gap:6px; align-items:center}
-    .contact-icons a{color:#333; text-decoration:none}
-    .contact-icons i{margin-right:6px; color:var(--blue)}
+    .contact-icons{margin:15px 0;display:flex;flex-direction:column;gap:6px;align-items:center}
+    .contact-icons a{color:#333;text-decoration:none}
+    .contact-icons i{margin-right:6px;color:var(--blue)}
 
-    /* ===== RESPONSIVE ===== */
-    /* до 900px: hamburger меню */
+    /* CONSENT BANNER */
+    .consent {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+      background: #0b6acb; color: #fff; padding: 14px 16px;
+      display: none; /* показва се с JS ако няма избор */
+      box-shadow: 0 -6px 20px rgba(0,0,0,.25);
+    }
+    .consent .inner {
+      max-width: var(--max); margin: 0 auto; display: grid; gap: 10px; align-items: center;
+      grid-template-columns: 1fr auto; 
+    }
+    .consent p { margin: 0; font-size: 14px }
+    .consent a { color: #fff; text-decoration: underline }
+    .consent .actions { display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end }
+    .consent .btn-mini {
+      background:#fff; color:#0b6acb; border:0; border-radius:8px; padding:8px 12px; font-weight:800; cursor:pointer;
+    }
+    .consent .btn-ghost {
+      background:transparent; color:#fff; border:1px solid rgba(255,255,255,.65);
+    }
+
+    /* RESPONSIVE */
     @media (max-width:900px){
-      .menu{display:none; position:absolute; right:20px; top:64px; flex-direction:column; gap:14px;
-            background:#fff; padding:14px; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.15)}
+      .menu{display:none;position:absolute;right:20px;top:64px;flex-direction:column;gap:14px;background:#fff;padding:14px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.15)}
       .menu.active{display:flex}
       .menu-toggle{display:block}
+      .consent .inner { grid-template-columns: 1fr }
+      .consent .actions { justify-content:flex-start }
     }
-    /* телефони до 600px: шрифтове/бутони една идея по-малки */
     @media (max-width:600px){
       .hero h1{font-size:24px}
       .hero p{font-size:15px}
-      .btn{padding:8px 14px; font-size:14px}
+      .btn{padding:8px 14px;font-size:14px}
       .card{padding:16px}
       h2{font-size:22px}
     }
-    /* много големи екрани */
     @media (min-width:1400px){
       body{font-size:18px}
       .hero h1{font-size:56px}
@@ -131,11 +118,11 @@
         <i class="fas fa-broom" aria-hidden="true"></i>
         <span>Georgi Rusev Gebäudereinigung</span>
       </div>
-      <i class="fas fa-bars menu-toggle" aria-label="Menü öffnen"></i>
+      <i class="fas fa-bars menu-toggle" aria-label="Menü"></i>
       <nav class="menu" aria-label="Hauptmenü">
         <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
-        <a href="#termin">Termin</a>
+        <a href="angebot.html">Angebot</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </div>
@@ -148,7 +135,7 @@
     <div class="btns">
       <a href="https://wa.me/4917680274345" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       <a href="tel:+4917680274345" class="btn"><i class="fas fa-phone"></i> Anrufen</a>
-      <a href="#termin" class="btn"><i class="fas fa-calendar-check"></i> Termin anfragen</a>
+      <a href="angebot.html" class="btn"><i class="fas fa-file-signature"></i> Angebot anfordern</a>
     </div>
   </section>
 
@@ -175,21 +162,42 @@
     </div>
   </section>
 
-  <!-- TERMIN -->
+  <!-- SCHNELLANFRAGE -->
   <section id="termin" class="form-section">
     <div class="form-box">
-      <h3>Termin anfragen</h3>
-      <form onsubmit="sendWhatsApp(event)">
-        <input type="text" id="name" placeholder="Name" required />
-        <input type="email" id="email" placeholder="E-Mail" />
-        <input type="tel" id="phone" placeholder="Telefon" />
-        <textarea id="msg" rows="4" placeholder="Objektbeschreibung"></textarea>
-        <button type="submit"><i class="fab fa-whatsapp"></i> Per WhatsApp senden</button>
+      <h3>Schnellanfrage: Termin / Angebot</h3>
+      <form id="leadForm">
+        <div>
+          <label for="name">Name *</label>
+          <input type="text" id="name" required />
+        </div>
+        <div>
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" />
+        </div>
+        <div>
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" />
+        </div>
+        <div>
+          <label for="msg">Kurzbeschreibung</label>
+          <textarea id="msg" rows="4" placeholder="Wohnung/Haus/Büro, m², gewünschte Leistung, Terminwunsch …"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-wa" onclick="sendWhatsApp()">
+            <i class="fab fa-whatsapp"></i> Per WhatsApp senden
+          </button>
+          <button type="button" class="btn btn-mail" onclick="sendEmail()">
+            <i class="fas fa-envelope"></i> Per E-Mail senden
+          </button>
+          <a href="angebot.html" class="btn btn-outline"><i class="fas fa-file-signature"></i> Ausführliche Anfrage</a>
+        </div>
       </form>
     </div>
   </section>
 
-  <!-- KONTAKT / FOOTER -->
+  <!-- FOOTER -->
   <footer id="kontakt">
     <div class="contact-icons">
       <a href="tel:+4917680274345"><i class="fas fa-phone"></i> +49 176 80274345</a>
@@ -200,28 +208,91 @@
     <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
+  <!-- CONSENT BANNER -->
+  <div class="consent" id="consent">
+    <div class="inner">
+      <p>
+        Wir verwenden nur essenzielle Cookies für die Funktionsfähigkeit der Website.
+        Optional können Sie <b>Statistik</b> erlauben, um unsere Seite zu verbessern.
+        Mehr dazu in der <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+      </p>
+      <div class="actions">
+        <button class="btn-mini btn-ghost" onclick="consentChoose('deny')">Nur notwendig</button>
+        <button class="btn-mini" onclick="consentChoose('allow')">Statistik erlauben</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Hamburger toggle
+    // hamburger
     document.querySelector('.menu-toggle').addEventListener('click', () => {
       document.querySelector('.menu').classList.toggle('active');
     });
-    // Затваряй менюто след клик на линк (на мобилни)
     document.querySelectorAll('.menu a').forEach(a=>{
       a.addEventListener('click', ()=>document.querySelector('.menu').classList.remove('active'));
     });
 
-    // WhatsApp форма
-    function sendWhatsApp(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
+    // payload helper
+    function getPayload(){
+      const name  = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
-      const msg = document.getElementById('msg').value.trim();
-      const text = encodeURIComponent(
-        `Termin Anfrage:\nName: ${name}\nEmail: ${email}\nTelefon: ${phone}\nBeschreibung: ${msg}`
-      );
-      window.open(`https://wa.me/4917680274345?text=${text}`, '_blank');
+      const msg   = document.getElementById('msg').value.trim();
+      if(!name){ alert('Bitte Ihren Namen eingeben.'); return null; }
+      const text = `Anfrage:\nName: ${name}\nE-Mail: ${email||'-'}\nTelefon: ${phone||'-'}\nBeschreibung: ${msg||'-'}`;
+      return {text};
     }
+
+    function sendWhatsApp(){
+      const p = getPayload(); if(!p) return;
+      const q = encodeURIComponent(p.text);
+      window.open(`https://wa.me/4917680274345?text=${q}`, '_blank');
+    }
+
+    function sendEmail(){
+      const p = getPayload(); if(!p) return;
+      const subject = encodeURIComponent('Termin / Angebot Anfrage');
+      const body    = encodeURIComponent(p.text);
+      window.location.href = `mailto:g.rusev2025@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // ===== Consent logic =====
+    const CKEY = 'gr_consent_v1'; // ключ за локалното съхранение
+
+    function showConsentIfNeeded(){
+      const v = localStorage.getItem(CKEY);
+      if(!v){ document.getElementById('consent').style.display = 'block'; }
+      else if(v === 'allow'){ loadAnalytics(); }
+    }
+
+    function consentChoose(mode){
+      localStorage.setItem(CKEY, mode);
+      document.getElementById('consent').style.display = 'none';
+      if(mode === 'allow'){ loadAnalytics(); }
+    }
+
+    // Зареждане на статистика САМО при съгласие
+    function loadAnalytics(){
+      // Тук добавяш real analytics (напр. Plausible/GA4). Пример за Plausible:
+      // const s = document.createElement('script');
+      // s.defer = true;
+      // s.setAttribute('data-domain','rusev-gebaeudereinigung.de');
+      // s.src = 'https://plausible.io/js/script.js';
+      // document.head.appendChild(s);
+
+      // За GA4 би изглеждало така (пример — добави свой ID ако решиш):
+      // const ga = document.createElement('script');
+      // ga.async = true;
+      // ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX';
+      // document.head.appendChild(ga);
+      // window.dataLayer = window.dataLayer || [];
+      // function gtag(){dataLayer.push(arguments);}
+      // gtag('js', new Date());
+      // gtag('config', 'G-XXXXXXX');
+    }
+
+    // стартираме
+    showConsentIfNeeded();
   </script>
 </body>
 </html>
