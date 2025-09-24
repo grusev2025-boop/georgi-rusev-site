@@ -6,11 +6,6 @@
   <title>Georgi Rusev Gebäudereinigung – Köln</title>
   <meta name="description" content="Sauberkeit & Vertrauen – Gebäudereinigung für Köln & Umgebung. Haushalts-, Büro-, Glas- & Baureinigung. Angebot in 30 Minuten." />
   <meta name="theme-color" content="#0b6acb" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
@@ -25,9 +20,8 @@
       font-size:clamp(18px,2.4vw,22px)}
     .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
     .menu{display:flex;gap:22px;align-items:center}
-    .menu a{text-decoration:none;color:#374151;font-weight:700;
-      padding:6px 14px;border:2px solid #0b6acb;border-radius:10px;transition:.3s}
-    .menu a:hover{background:#0b6acb;color:#fff}
+    .menu a{text-decoration:none;color:#374151;font-weight:700}
+    .menu a:hover{color:#0b6acb}
     @media (max-width:860px){
       .toggle{display:block}
       .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
@@ -49,28 +43,14 @@
 
     /* SECTIONS */
     section{max-width:var(--max);margin:50px auto;padding:0 20px}
-    h2{font-size:18px;margin-bottom:22px}
-
-    /* Специално за Leistungen & Preise */
-    #leistungen h2,
-    #preise h2 {
-      display:inline-block;
-      background:#0b6acb;
-      color:#fff;
-      padding:8px 20px;
-      border-radius:12px;
-      font-size:20px;
-      margin:0 auto 24px;
-      text-align:center;
-    }
-    #leistungen, #preise { text-align:center; }
+    h2{display:inline-block;background:#0b6acb;color:#fff;padding:6px 18px;border-radius:12px;font-size:18px;margin-bottom:22px}
 
     .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:22px;text-align:center}
     .card i{font-size:28px;color:#0b6acb;margin-bottom:10px}
 
     /* SCHNELL-ANGEBOT */
-    .angebot{background:#0b6acb;border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12);max-width:600px;margin:0 auto}
+    .angebot{background:#0b6acb;border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12)}
     .angebot h3{margin-top:0;color:#fff;text-align:center}
     .angebot form{display:grid;gap:14px}
     .angebot input,.angebot select{width:100%;padding:12px;border-radius:10px;border:none;font-size:15px}
@@ -84,6 +64,16 @@
     /* Back-to-top button */
     #topBtn{display:none;position:fixed;bottom:20px;right:20px;z-index:99;background:#0b6acb;color:#fff;border:none;padding:14px;border-radius:50%;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,.3);font-size:18px}
     #topBtn:hover{background:#094f94}
+
+    /* CONTACT LINKS */
+    .contact-link {
+      text-decoration: none;
+      color: #0b6acb;
+      font-weight: 500;
+    }
+    .contact-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -157,9 +147,16 @@
 
 <section id="kontakt" style="text-align:center;margin-top:40px">
   <h2>Kontakt</h2>
-  <p>📞 <a href="tel:+4917680274345" style="color:#0b6acb">+49 176 80274345</a><br>
-     📧 <a href="mailto:g.rusev2025@gmail.com" style="color:#0b6acb">grusev2025@gmail.com</a><br>
-     💬 WhatsApp: +49 176 80274345</p>
+  <p>
+    <i class="fas fa-phone" style="color:#0b6acb"></i>
+    <a href="tel:+4917680274345" class="contact-link">+49 176 80274345</a><br>
+
+    <i class="fas fa-envelope" style="color:#0b6acb"></i>
+    <a href="mailto:g.rusev2025@gmail.com" class="contact-link">g.rusev2025@gmail.com</a><br>
+
+    <i class="fab fa-whatsapp" style="color:#25D366"></i>
+    <span class="contact-link">+49 176 80274345</span>
+  </p>
 </section>
 
 <footer>
