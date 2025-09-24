@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angebot anfordern – Georgi Rusev Gebäudereinigung</title>
+  <meta name="description" content="Fordern Sie ein individuelles Reinigungsangebot für Köln & Umgebung an. Haushalte, Büros, Glas- & Baureinigung." />
+  <meta name="theme-color" content="#0b6acb" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#1f2937;line-height:1.6}
+
+    /* NAV (simple) */
+    header{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;
+      background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
+      font-size:clamp(18px,2.4vw,24px)}
+    .menu a{text-decoration:none;color:#374151;font-weight:600;margin-left:18px}
+    .menu a:hover{color:#0b6acb}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#0b6acb,#3aa0ff);color:#fff;padding:36px 20px}
+    .hero .wrap{max-width:var(--max);margin:0 auto}
+    .hero h1{margin:0 0 6px;font-size:clamp(24px,4.2vw,40px)}
+    .hero p{margin:0;opacity:.95}
+
+    /* FORM CARD */
+    .wrap{max-width:var(--max);margin:32px auto;padding:0 20px}
+    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:22px}
+    .grid{display:grid;gap:16px}
+    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:800px){.g2,.g3{grid-template-columns:1fr}}
+    label{font-weight:600;font-size:14px}
+    input,select,textarea{
+      width:100%;padding:12px;border:1px solid #d8e5f5;border-radius:10px;font-size:15px;background:#fff
+    }
+    textarea{min-height:110px}
+    .row{display:grid;gap:12px;margin-bottom:10px}
+    .hint{font-size:12px;color:#6b7280}
+    .req{color:#ef4444}
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-weight:800;text-decoration:none;border:none;cursor:pointer;transition:.2s}
+    .btn-wa{background:#25D366;color:#fff}
+    .btn-wa:hover{filter:brightness(0.95)}
+    .btn-mail{background:#0b6acb;color:#fff}
+    .btn-mail:hover{background:#094f94}
+    .btn-ghost{background:#fff;color:#0b6acb;border:1px solid #cfe3ff}
+    .btn i{font-size:18px}
+
+    .note{font-size:13px;color:#6b7280;margin-top:10px}
+    .checkbox{display:flex;align-items:center;gap:8px}
+
+    footer{margin:26px 0 40px;text-align:center;color:#6b7280;font-size:14px}
+    footer a{color:#0b6acb;text-decoration:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><i class="fas fa-broom" style="color:#0b6acb"></i> Georgi Rusev Gebäudereinigung</div>
+    <nav class="menu">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#preise">Preise</a>
+      <a href="angebot.html">Angebot</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Angebot anfordern</h1>
+    <p>Geben Sie kurz die wichtigsten Daten an – wir melden uns mit einem Angebot in max. 30 Minuten.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="card">
+    <form id="offerForm">
+      <!-- 1. Kontaktdaten -->
+      <h2 style="margin:0 0 6px;color:#0b6acb;font-size:20px">1) Kontaktdaten</h2>
+      <div class="grid g2">
+        <div class="row">
+          <label for="name">Name <span class="req">*</span></label>
+          <input id="name" type="text" required />
+        </div>
+        <div class="row">
+          <label for="phone">Telefon <span class="req">*</span></label>
+          <input id="phone" type="tel" required />
+        </div>
+        <div class="row">
+          <label for="email">E-Mail</label>
+          <input id="email" type="email" placeholder="optional" />
+        </div>
+        <div class="row">
+          <label for="city">Stadt / PLZ</label>
+          <input id="city" type="text" placeholder="z.B. Köln 50667" />
+        </div>
+      </div>
+
+      <!-- 2. Objekt & Leistung -->
+      <h2 style="margin:12px 0 6px;color:#0b6acb;font-size:20px">2) Objekt & Leistung</h2>
+      <div class="grid g3">
+        <div class="row">
+          <label for="objekt">Objekt <span class="req">*</span></label>
+          <select id="objekt" required>
+            <option value="">Bitte wählen…</option>
+            <option>Wohnung</option>
+            <option>Haus</option>
+            <option>Büro</option>
+            <option>Geschäftsfläche</option>
+            <option>Baustelle</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="flaeche">Fläche (m²)</label>
+          <input id="flaeche" type="number" min="0" placeholder="z.B. 85" />
+        </div>
+        <div class="row">
+          <label for="leistung">Gewünschte Leistung <span class="req">*</span></label>
+          <select id="leistung" required>
+            <option value="">Bitte wählen…</option>
+            <option>Haushaltsreinigung</option>
+            <option>Büroreinigung</option>
+            <option>Glas-/Fensterreinigung</option>
+            <option>Grundreinigung</option>
+            <option>Baureinigung</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid g2">
+        <div class="row">
+          <label for="verschmutzung">Verschmutzungsgrad</label>
+          <select id="verschmutzung">
+            <option>normal</option>
+            <option>stark</option>
+          </select>
+          <div class="hint">optional – hilft bei schnellerer Kalkulation</div>
+        </div>
+        <div class="row">
+          <label for="turnus">Häufigkeit</label>
+          <select id="turnus">
+            <option>einmalig</option>
+            <option>wöchentlich</option>
+            <option>14-tägig</option>
+            <option>monatlich</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="beschreibung">Beschreibung</label>
+        <textarea id="beschreibung" placeholder="Kurzbeschreibung: Zimmer/Etagen, besondere Wünsche, Zugang usw."></textarea>
+      </div>
+
+      <!-- 3. Wunschtermin -->
+      <h2 style="margin:12px 0 6px;color:#0b6acb;font-size:20px">3) Wunschtermin</h2>
+      <div class="grid g3">
+        <div class="row">
+          <label for="datum">Datum</label>
+          <input id="datum" type="date" />
+        </div>
+        <div class="row">
+          <label for="uhrzeit">Uhrzeit</label>
+          <input id="uhrzeit" type="time" />
+        </div>
+        <div class="row">
+          <label for="flex">Flexibel</label>
+          <select id="flex">
+            <option>ja</option>
+            <option>nein</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Datenschutz / Zustimmung -->
+      <div class="row checkbox" style="margin-top:8px">
+        <input id="consent" type="checkbox" required />
+        <label for="consent">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verwendet werden. <a href="datenschutz.html" target="_blank">Datenschutz</a></label>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+        <button type="button" class="btn btn-wa" onclick="sendWA()"><i class="fab fa-whatsapp"></i> Per WhatsApp senden</button>
+        <button type="button" class="btn btn-mail" onclick="sendEmail()"><i class="fas fa-envelope"></i> Per E-Mail senden</button>
+        <a href="index.html" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Zurück zur Startseite</a>
+      </div>
+
+      <div class="note">Tipp: Sie können später Fotos per WhatsApp nachreichen. Wir antworten in der Regel innerhalb von 30 Minuten.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2025 Georgi Rusev Gebäudereinigung · Köln · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+</footer>
+
+<script>
+  function payload(){
+    const get = id => document.getElementById(id).value.trim();
+    const name = get('name');
+    const phone = get('phone');
+    const email = get('email');
+    const city = get('city');
+    const objekt = get('objekt');
+    const flaeche = get('flaeche');
+    const leistung = get('leistung');
+    const verschmutzung = get('verschmutzung');
+    const turnus = get('turnus');
+    const beschreibung = get('beschreibung');
+    const datum = get('datum');
+    const uhrzeit = get('uhrzeit');
+    const flex = get('flex');
+
+    if(!name || !phone || !objekt || !leistung || !document.getElementById('consent').checked){
+      alert('Bitte füllen Sie die Pflichtfelder aus (Name, Telefon, Objekt, Leistung) und stimmen Sie zu.');
+      return null;
+    }
+
+    const text =
+`Angebot Anfrage:
+Name: ${name}
+Telefon: ${phone}
+E-Mail: ${email || '-'}
+Stadt/PLZ: ${city || '-'}
+Objekt: ${objekt}
+Fläche: ${flaeche || '-'} m²
+Leistung: ${leistung}
+Verschmutzung: ${verschmutzung}
+Häufigkeit: ${turnus}
+Wunschtermin: ${datum || '-'} ${uhrzeit || ''}
+Flexibel: ${flex}
+Beschreibung: ${beschreibung || '-'}`;
+
+    return {text, email};
+  }
+
+  function sendWA(){
+    const p = payload(); if(!p) return;
+    const q = encodeURIComponent(p.text);
+    window.open(`https://wa.me/4917680274345?text=${q}`, '_blank');
+  }
+
+  function sendEmail(){
+    const p = payload(); if(!p) return;
+    const subject = encodeURIComponent('Angebot Anfrage – Gebäudereinigung');
+    const body = encodeURIComponent(p.text);
+    // mailto не може да прикача файлове – снимки може да се пратят после по WhatsApp
+    window.location.href = `mailto:g.rusev2025@gmail.com?subject=${subject}&body=${body}`;
+    // По желание: след mailto да пращаме към Danke-страница:
+    // setTimeout(()=>location.href='danke.html', 1000);
+  }
+</script>
+</body>
+</html>
