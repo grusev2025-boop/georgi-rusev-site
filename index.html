@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Georgi Rusev Gebäudereinigung – Köln</title>
-  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushalts-, Büro-, Fenster-, Glas- & Baureinigung. Schnell & zuverlässig." />
+  <meta name="description" content="Professionelle Gebäudereinigung in Köln & Umgebung. Haushalts-, Büro-, Fenster- & Baureinigung. Schnell & zuverlässig." />
   <meta name="theme-color" content="#0b6acb" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -29,11 +29,10 @@
     }
 
     /* HERO */
-    .hero{position:relative;height:400px;background:url('hero-office.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.25)} /* леко затъмняване */
+    .hero{position:relative;height:400px;background:url('hero-office.png') center/contain no-repeat #0b6acb;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
     .hero .wrap{position:relative;z-index:2;max-width:var(--max);padding:0 20px}
-    .hero h1{margin:0 0 12px;font-size:clamp(24px,4.2vw,42px)}
-    .hero p{margin:0 0 20px;opacity:.95}
+    .hero h1{margin:0 0 12px;font-size:clamp(24px,4.2vw,42px);text-shadow:0 2px 6px rgba(0,0,0,0.6)}
+    .hero p{margin:0 0 20px;opacity:.95;text-shadow:0 2px 6px rgba(0,0,0,0.6)}
     .hero .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
     .hero .btn{padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
     .btn-green{background:#25d366;color:#fff}
@@ -49,12 +48,18 @@
       border-radius:20px;
       font-weight:700;
       margin:40px 0 20px;
+      transition:all .3s;
+    }
+    .section-title:hover{
+      background:var(--blue2);
+      transform:scale(1.05);
     }
 
     /* CARDS */
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
     .cards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:22px;text-align:center}
+    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:22px;text-align:center;transition:.3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 12px 22px rgba(0,0,0,.12)}
     .card i{font-size:28px;color:#0b6acb;margin-bottom:8px}
 
     /* SCHNELL-ANGEBOT */
@@ -62,9 +67,34 @@
     .quick h2{margin:0 0 12px;text-align:center}
     .quick input, .quick select{width:100%;padding:12px;border:none;border-radius:8px;margin-bottom:12px}
     .quick button{width:100%;padding:12px;border:none;border-radius:8px;background:#111827;color:#fff;font-weight:700;cursor:pointer}
+    .quick button:hover{background:#333}
 
+    /* FOOTER */
     footer{margin:26px 0 40px;text-align:center;color:#6b7280;font-size:14px}
     footer a{color:#0b6acb;text-decoration:none}
+
+    /* SCROLL TO TOP */
+    #toTop {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      display: none;
+      background: #0b6acb;
+      color: #fff;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s, transform 0.2s;
+    }
+    #toTop:hover {
+      background: #094f94;
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -85,7 +115,7 @@
 <section class="hero">
   <div class="wrap">
     <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
-    <p>Haushalte, Büros, Geschäfte, Glas- & Baureinigung. Angebot in 30 Minuten.</p>
+    <p>Haushalte, Büros, Geschäfte, Fenster- & Baureinigung. Angebot in 30 Minuten.</p>
     <div class="actions">
       <a href="https://wa.me/4917680274345" class="btn btn-green"><i class="fab fa-whatsapp"></i> WhatsApp</a>
       <a href="tel:+4917680274345" class="btn btn-blue"><i class="fas fa-phone"></i> Anrufen</a>
@@ -110,17 +140,17 @@
     <div class="card"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
     <div class="card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
     <div class="card"><h3>Baureinigung</h3><p>Nach Einschätzung, Beratung kostenlos.</p></div>
-    <div class="card"><h3>Glas/Vitrinen</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
+    <div class="card"><h3>Fenster/Vitrinen</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
   </div>
 
   <div class="quick">
     <h2>Schnell-Angebot</h2>
-    <form>
-      <input type="text" placeholder="Ihr Name *" required />
-      <input type="tel" placeholder="Telefonnummer *" required />
-      <input type="text" placeholder="PLZ / Stadt" />
-      <select required>
-        <option>Leistung auswählen…</option>
+    <form action="https://formspree.io/f/xovkqzwa" method="POST">
+      <input type="text" name="Name" placeholder="Ihr Name *" required />
+      <input type="tel" name="Telefon" placeholder="Telefonnummer *" required />
+      <input type="text" name="PLZ/Stadt" placeholder="PLZ / Stadt" />
+      <select name="Leistung" required>
+        <option value="">Leistung auswählen…</option>
         <option>Haushaltsreinigung</option>
         <option>Büroreinigung</option>
         <option>Geschäftsflächen</option>
@@ -146,8 +176,26 @@
   <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
+<!-- Scroll-to-top Button -->
+<button id="toTop"><i class="fas fa-arrow-up"></i></button>
+
 <script>
+  // Burger menu
   document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
+
+  // Scroll to top
+  const toTop = document.getElementById("toTop");
+  window.addEventListener("scroll", () => {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      toTop.style.display = "block";
+    } else {
+      toTop.style.display = "none";
+    }
+  });
+  toTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 </script>
+
 </body>
 </html>
