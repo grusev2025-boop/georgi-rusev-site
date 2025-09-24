@@ -1,80 +1,74 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Angebot anfordern – Georgi Rusev Gebäudereinigung</title>
-  <meta name="description" content="Fordern Sie ein individuelles Reinigungsangebot für Köln & Umgebung an. Haushalts-, Büro-, Glas- & Baureinigung, Grundreinigung u.v.m." />
-  <meta name="theme-color" content="#0b6acb" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="description" content="Fordern Sie ein individuelles Reinigungsangebot für Köln & Umgebung an. Schnell, unkompliziert und kostenlos.">
+  <meta name="theme-color" content="#0b6acb">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root{ --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
-    *{box-sizing:border-box}
-    html,body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;line-height:1.6}
+    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:#111827; line-height:1.6; }
 
     /* NAV */
-    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800;
-      background:linear-gradient(90deg,#0b6acb,#3aa0ff);-webkit-background-clip:text;background-clip:text;color:transparent;
-      font-size:clamp(18px,2.4vw,24px)}
-    .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
-    .menu{display:flex;gap:22px;align-items:center}
-    .menu a{text-decoration:none;color:#374151;font-weight:700}
-    .menu a:hover{color:#0b6acb}
+    header { position:sticky; top:0; z-index:20; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); }
+    .nav { max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
+    .logo { display:flex; align-items:center; gap:10px; font-weight:800;
+      background:linear-gradient(90deg,#0b6acb,#3aa0ff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      font-size:clamp(18px,2.4vw,24px); }
+    .toggle { display:none; font-size:26px; color:var(--blue); cursor:pointer; }
+    .menu { display:flex; gap:22px; align-items:center; }
+    .menu a { text-decoration:none; color:var(--blue); font-weight:700; padding:8px 14px; border-radius:6px; transition:0.3s; }
+    .menu a:hover { background:var(--blue); color:#fff; }
     @media (max-width:860px){
-      .toggle{display:block}
-      .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
-      .menu.active{display:flex}
+      .toggle { display:block; }
+      .menu { display:none; position:absolute; right:20px; top:60px; background:#fff; border:1px solid #e6eef7; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.12); padding:12px; flex-direction:column; gap:10px; }
+      .menu.active { display:flex; }
     }
 
     /* HERO */
-    .hero{background:linear-gradient(135deg,#0b6acb,#3aa0ff);color:#fff;padding:36px 20px}
-    .hero .wrap{max-width:var(--max);margin:0 auto}
-    .hero h1{margin:0 0 8px;font-size:clamp(24px,4.2vw,40px)}
-    .hero p{margin:0;opacity:.95}
+    .hero { position:relative; background:linear-gradient(135deg,#0b6acb,#3aa0ff); color:#fff; text-align:center; padding:60px 20px; }
+    .hero .wrap { max-width:var(--max); margin:0 auto; }
+    .hero h1 { margin:0 0 12px; font-size:clamp(26px,4.5vw,42px); font-weight:800; }
+    .hero p { margin:0; font-size:18px; }
 
-    /* FORM CARD */
-    .wrap{max-width:var(--max);margin:24px auto;padding:0 20px}
-    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);padding:22px}
+    /* FORM */
+    .wrap { max-width:var(--max); margin:40px auto; padding:0 20px; }
+    .card { background:#fff; border:1px solid #d8e5f5; border-radius:12px; padding:24px; box-shadow:0 8px 18px rgba(0,0,0,.08); }
+    h2.sec { margin:20px 0 10px; color:var(--blue); font-size:20px; }
 
-    .grid{display:grid;gap:16px}
-    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:880px){.g2,.g3{grid-template-columns:1fr}}
+    .grid { display:grid; gap:16px; }
+    .g2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .g3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    @media(max-width:880px){ .g2,.g3{ grid-template-columns:1fr; } }
 
-    label{font-weight:700;font-size:14px}
-    input,select,textarea{width:100%;padding:12px;border:1px solid #d8e5f5;border-radius:10px;font-size:16px;background:#fff}
-    textarea{min-height:110px}
-    .row{display:grid;gap:8px}
-    .hint{font-size:12px;color:#6b7280}
-    .req{color:#ef4444}
-    h2.sec{margin:0 0 10px;color:#0b6acb;font-size:20px}
+    label { font-weight:700; font-size:14px; }
+    input,select,textarea { width:100%; padding:12px; border:1px solid #d8e5f5; border-radius:10px; font-size:16px; background:#fff; }
+    textarea { min-height:100px; }
 
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px;font-weight:800;text-decoration:none;border:none;cursor:pointer;transition:.2s}
-    .btn-mail{background:#0b6acb;color:#fff}
-    .btn-mail:hover{background:#094f94}
-    .btn-ghost{background:#fff;color:#0b6acb;border:1px solid #cfe3ff}
-    .btn i{font-size:18px}
+    .actions { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:10px; font-weight:800; text-decoration:none; border:none; cursor:pointer; transition:.2s; }
+    .btn-mail { background:#0b6acb; color:#fff; }
+    .btn-mail:hover { background:#094f94; }
+    .btn-ghost { background:#fff; color:#0b6acb; border:1px solid #cfe3ff; }
+    .btn i { font-size:18px; }
 
-    /* Checkbox label inline */
-    .checklbl{display:flex;align-items:center;gap:10px;cursor:pointer}
-    .checklbl input{width:auto}
+    .checklbl { display:flex; align-items:center; gap:10px; margin-top:15px; font-size:14px; }
+    .checklbl input { width:auto; }
 
-    footer{margin:26px 0 40px;text-align:center;color:#6b7280;font-size:14px}
-    footer a{color:#0b6acb;text-decoration:none}
-
-    .form-note{margin-top:10px;font-size:14px}
-    .ok{color:#0b6acb}.err{color:#b91c1c}
+    footer { background:#0b6acb; color:#fff; padding:30px 20px; text-align:center; font-size:14px; margin-top:60px; }
+    footer a { color:#fff; text-decoration:underline; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="nav">
-    <div class="logo"><i class="fas fa-broom" style="color:#0b6acb"></i> Georgi Rusev Gebäudereinigung</div>
-    <i class="fas fa-bars toggle" aria-label="Menü"></i>
+    <div class="logo"><i class="fas fa-broom"></i> Georgi Rusev Gebäudereinigung</div>
+    <i class="fas fa-bars toggle"></i>
     <nav class="menu">
       <a href="index.html#leistungen">Leistungen</a>
       <a href="index.html#preise">Preise</a>
@@ -93,42 +87,21 @@
 
 <section class="wrap">
   <div class="card">
-    <!-- Formspree: директен POST към твоя endpoint -->
-    <form id="offerForm" action="https://formspree.io/f/xovkqzwa" method="POST" novalidate>
-      <!-- subject + красив шаблон + redirect след успех -->
-      <input type="hidden" name="_subject" value="Angebot Anfrage – Website">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_redirect" value="danke.html">
-      <!-- honeypot -->
-      <input type="text" name="_gotcha" style="display:none">
-
-      <!-- 1) Kontakt -->
+    <form id="offerForm" action="https://formspree.io/f/xovkqzwa" method="POST">
+      
       <h2 class="sec">1) Kontaktdaten</h2>
       <div class="grid g2">
-        <div class="row">
-          <label for="name">Name <span class="req">*</span></label>
-          <input id="name" name="Name" type="text" required />
-        </div>
-        <div class="row">
-          <label for="phone">Telefon <span class="req">*</span></label>
-          <input id="phone" name="Telefon" type="tel" required />
-        </div>
-        <div class="row">
-          <label for="email">E-Mail</label>
-          <input id="email" name="E-Mail" type="email" placeholder="optional" />
-        </div>
-        <div class="row">
-          <label for="city">Stadt / PLZ</label>
-          <input id="city" name="Stadt/PLZ" type="text" placeholder="z.B. Köln 50667" />
-        </div>
+        <div><label>Name *</label><input type="text" name="Name" required></div>
+        <div><label>Telefon *</label><input type="tel" name="Telefon" required></div>
+        <div><label>E-Mail</label><input type="email" name="E-Mail" placeholder="optional"></div>
+        <div><label>Stadt / PLZ</label><input type="text" name="Stadt/PLZ" placeholder="z.B. Köln 50667"></div>
       </div>
 
-      <!-- 2) Objekt & Leistung -->
-      <h2 class="sec" style="margin-top:12px">2) Objekt & Leistung</h2>
+      <h2 class="sec">2) Objekt & Leistung</h2>
       <div class="grid g3">
-        <div class="row">
-          <label for="objekt">Objekt <span class="req">*</span></label>
-          <select id="objekt" name="Objekt" required>
+        <div>
+          <label>Objekt *</label>
+          <select name="Objekt" required>
             <option value="">Bitte wählen…</option>
             <option>Wohnung</option>
             <option>Haus</option>
@@ -139,151 +112,84 @@
             <option>Sonstiges</option>
           </select>
         </div>
-
-        <div class="row">
-          <label for="flaeche">Fläche (m²)</label>
-          <input id="flaeche" name="Fläche (m²)" type="number" min="0" placeholder="z.B. 85" />
-        </div>
-
-        <div class="row">
-          <label for="leistung">Gewünschte Leistung <span class="req">*</span></label>
-          <select id="leistung" name="Leistung" required>
+        <div><label>Fläche (m²)</label><input type="number" name="Fläche (m²)" min="0" placeholder="z.B. 85"></div>
+        <div>
+          <label>Gewünschte Leistung *</label>
+          <select name="Leistung" required>
             <option value="">Bitte wählen…</option>
             <option>Unterhaltsreinigung (Haushalt)</option>
             <option>Unterhaltsreinigung (Büro)</option>
-            <option>Grundreinigung (intensiv)</option>
-            <option>Umzugsreinigung</option>
-            <option>Glas-/Fensterreinigung innen & außen</option>
-            <option>Fensterrahmen & Simse reinigen</option>
-            <option>Wintergarten / Terrassenüberdachung</option>
-            <option>Rollläden / Jalousien reinigen</option>
-            <option>Geschäftsfläche (Eröffnung / Pflege / Events)</option>
+            <option>Grundreinigung</option>
+            <option>Glas-/Fensterreinigung</option>
             <option>Treppenhausreinigung</option>
-            <option>Teppichreinigung</option>
-            <option>Polster-/Sofareinigung</option>
-            <option>Bodenpflege (Parkett/Stein einpflegen)</option>
-            <option>Bauendreinigung (grob)</option>
-            <option>Bauendreinigung (fein)</option>
-            <option>Küchenreinigung (Fettrückstände)</option>
-            <option>Bad/Fliesen (Verkalkungen)</option>
-            <option>Geruchs-/Nikotinreinigung</option>
-            <option>Sonderreinigung (bitte beschreiben)</option>
+            <option>Bauendreinigung</option>
+            <option>Sonderreinigung</option>
           </select>
         </div>
       </div>
 
       <div class="grid g3">
-        <div class="row">
-          <label for="turnus">Häufigkeit</label>
-          <select id="turnus" name="Häufigkeit">
+        <div>
+          <label>Häufigkeit</label>
+          <select name="Häufigkeit">
             <option>einmalig</option>
-            <option>täglich</option>
-            <option>2–3× pro Woche</option>
             <option>wöchentlich</option>
             <option>14-tägig</option>
-            <option>alle 3 Wochen</option>
             <option>monatlich</option>
-            <option>alle 2 Monate</option>
-            <option>quartalsweise</option>
-            <option>halbjährlich</option>
           </select>
         </div>
-
-        <div class="row">
-          <label for="verschmutzung">Verschmutzungsgrad</label>
-          <select id="verschmutzung" name="Verschmutzungsgrad">
+        <div>
+          <label>Verschmutzungsgrad</label>
+          <select name="Verschmutzungsgrad">
             <option>leicht</option>
             <option selected>normal</option>
             <option>stark</option>
             <option>sehr stark</option>
-            <option>Bauschmutz</option>
-            <option>starke Fettrückstände (Küche)</option>
-            <option>starke Verkalkungen (Bad/Fliesen)</option>
-            <option>Nikotin / Haustiere</option>
           </select>
-          <div class="hint">optional – hilft bei schnellerer Kalkulation</div>
         </div>
-
-        <div class="row">
-          <label for="beschreibung">Beschreibung</label>
-          <textarea id="beschreibung" name="Beschreibung" placeholder="Zimmer/Etagen, besondere Wünsche, Zugang, Parken, Schlüssel …"></textarea>
+        <div>
+          <label>Beschreibung</label>
+          <textarea name="Beschreibung" placeholder="Zimmer/Etagen, besondere Wünsche, Zugang usw."></textarea>
         </div>
       </div>
 
-      <!-- 3) Termin -->
-      <h2 class="sec" style="margin-top:12px">3) Wunschtermin</h2>
+      <h2 class="sec">3) Wunschtermin</h2>
       <div class="grid g3">
-        <div class="row">
-          <label for="datum">Datum</label>
-          <input id="datum" name="Wunschtermin (Datum)" type="text" inputmode="numeric" placeholder="TT.MM.JJJJ" maxlength="10" />
-        </div>
-        <div class="row">
-          <label for="uhrzeit">Uhrzeit</label>
-          <input id="uhrzeit" name="Wunschtermin (Uhrzeit)" type="text" inputmode="numeric" placeholder="HH:MM" maxlength="5" />
-        </div>
-        <div class="row">
-          <label for="flex">Flexibel</label>
-          <select id="flex" name="Flexibel">
+        <div><label>Datum</label><input type="text" name="Wunschtermin (Datum)" placeholder="TT.MM.JJJJ"></div>
+        <div><label>Uhrzeit</label><input type="text" name="Wunschtermin (Uhrzeit)" placeholder="HH:MM"></div>
+        <div>
+          <label>Flexibel</label>
+          <select name="Flexibel">
             <option>ja</option>
             <option>nein</option>
           </select>
         </div>
       </div>
 
-      <!-- Consent inline -->
-      <label class="checklbl" style="margin-top:10px">
-        <input id="consent" name="Datenschutz akzeptiert" type="checkbox" required />
+      <label class="checklbl">
+        <input type="checkbox" name="Datenschutz" required>
         <span>Ich stimme zu, dass meine Angaben zur Kontaktaufnahme verwendet werden. <a href="datenschutz.html" target="_blank">Datenschutz</a></span>
       </label>
 
-      <!-- ACTIONS -->
       <div class="actions">
         <button type="submit" class="btn btn-mail"><i class="fas fa-paper-plane"></i> Anfrage absenden</button>
         <a href="index.html" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Zurück zur Startseite</a>
       </div>
-
-      <div id="formNote" class="form-note"></div>
     </form>
   </div>
 </section>
 
 <footer>
-  © 2025 Georgi Rusev Gebäudereinigung · Köln · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+  © 2025 Georgi Rusev Gebäudereinigung · Köln · 
+  <a href="impressum.html">Impressum</a> · 
+  <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
 <script>
-  // burger
-  document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
-
-  // Date mask TT.MM.JJJJ
-  const d = document.getElementById('datum');
-  if (d) {
-    d.addEventListener('input', e => {
-      let v = e.target.value.replace(/[^\d]/g, '').slice(0,8);
-      if (v.length >= 5) v = v.slice(0,2)+'.'+v.slice(2,4)+'.'+v.slice(4);
-      else if (v.length >= 3) v = v.slice(0,2)+'.'+v.slice(2);
-      e.target.value = v;
-    });
-  }
-
-  // Клиентска проверка за име/тел. и consent (предпазва от празни POST-ове)
-  document.getElementById('offerForm').addEventListener('submit', function(e){
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const consent = document.getElementById('consent').checked;
-    const note = document.getElementById('formNote');
-
-    if(!name || !phone || !consent){
-      e.preventDefault();
-      note.className = 'form-note err';
-      note.textContent = 'Bitte Pflichtfelder ausfüllen (Name, Telefon) und Datenschutz akzeptieren.';
-      return false;
-    }
-    note.className = 'form-note ok';
-    note.textContent = 'Sende Anfrage…';
-    // После браузърът POST-ва към Formspree -> redirect към danke.html
+  document.querySelector('.toggle').addEventListener('click', () => {
+    document.querySelector('.menu').classList.toggle('active');
   });
 </script>
+
 </body>
 </html>
-
