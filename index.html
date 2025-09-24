@@ -6,6 +6,11 @@
   <title>Georgi Rusev Gebäudereinigung – Köln</title>
   <meta name="description" content="Sauberkeit & Vertrauen – Gebäudereinigung für Köln & Umgebung. Haushalts-, Büro-, Glas- & Baureinigung. Angebot in 30 Minuten." />
   <meta name="theme-color" content="#0b6acb" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
@@ -20,8 +25,9 @@
       font-size:clamp(18px,2.4vw,22px)}
     .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
     .menu{display:flex;gap:22px;align-items:center}
-    .menu a{text-decoration:none;color:#374151;font-weight:700}
-    .menu a:hover{color:#0b6acb}
+    .menu a{text-decoration:none;color:#374151;font-weight:700;
+      padding:6px 14px;border:2px solid #0b6acb;border-radius:10px;transition:.3s}
+    .menu a:hover{background:#0b6acb;color:#fff}
     @media (max-width:860px){
       .toggle{display:block}
       .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
@@ -43,14 +49,28 @@
 
     /* SECTIONS */
     section{max-width:var(--max);margin:50px auto;padding:0 20px}
-    h2{display:inline-block;background:#0b6acb;color:#fff;padding:6px 18px;border-radius:12px;font-size:18px;margin-bottom:22px}
+    h2{font-size:18px;margin-bottom:22px}
+
+    /* Специално за Leistungen & Preise */
+    #leistungen h2,
+    #preise h2 {
+      display:inline-block;
+      background:#0b6acb;
+      color:#fff;
+      padding:8px 20px;
+      border-radius:12px;
+      font-size:20px;
+      margin:0 auto 24px;
+      text-align:center;
+    }
+    #leistungen, #preise { text-align:center; }
 
     .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:22px;text-align:center}
     .card i{font-size:28px;color:#0b6acb;margin-bottom:10px}
 
     /* SCHNELL-ANGEBOT */
-    .angebot{background:#0b6acb;border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+    .angebot{background:#0b6acb;border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12);max-width:600px;margin:0 auto}
     .angebot h3{margin-top:0;color:#fff;text-align:center}
     .angebot form{display:grid;gap:14px}
     .angebot input,.angebot select{width:100%;padding:12px;border-radius:10px;border:none;font-size:15px}
