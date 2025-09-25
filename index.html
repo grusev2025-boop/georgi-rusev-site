@@ -4,67 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Georgi Rusev Gebäudereinigung – Köln</title>
-  <meta name="description" content="Sauberkeit & Vertrauen – Gebäudereinigung in Köln & Umgebung. Haushalts-, Büro-, Glas- & Baureinigung. Angebot in 30 Minuten.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Sauberkeit & Vertrauen – Gebäudereinigung für Köln & Umgebung. Haushalts-, Büro-, Glas- & Baureinigung. Angebot in 30 Minuten." />
+  <meta name="theme-color" content="#0b6acb" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f7f9fc; --dark:#111827; --max:1200px }
+    :root {
+      --blue:#0b6acb;
+      --blue-light:#3aa0ff;
+      --bg:#f6f9fe;
+      --max:1200px;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+    body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:var(--bg);color:#111827;line-height:1.6}
 
-    /* NAVIGATION */
-    header{background:var(--blue);color:#fff;position:sticky;top:0;z-index:20}
-    .nav{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:800;font-size:20px}
-    .menu{display:flex;gap:24px}
-    .menu a{color:#fff;text-decoration:none;font-weight:600}
-    .menu a:hover{text-decoration:underline}
-    .toggle{display:none}
-    @media(max-width:860px){
-      .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;color:#111;flex-direction:column;padding:12px;border-radius:8px;box-shadow:0 6px 16px rgba(0,0,0,0.2)}
-      .menu a{color:#111}
+    /* NAV */
+    header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+    .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;font-size:20px;color:var(--blue)}
+    .toggle{display:none;font-size:26px;color:var(--blue);cursor:pointer}
+    .menu{display:flex;gap:22px;align-items:center}
+    .menu a{text-decoration:none;color:#374151;font-weight:700;padding:6px 14px;border:1px solid #ddd;border-radius:10px}
+    .menu a:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+    @media (max-width:860px){
+      .toggle{display:block}
+      .menu{display:none;position:absolute;right:20px;top:60px;background:#fff;border:1px solid #e6eef7;border-radius:12px;box-shadow:0 10px 20px rgba(0,0,0,.12);padding:12px;flex-direction:column;gap:10px}
       .menu.active{display:flex}
-      .toggle{display:block;font-size:22px;cursor:pointer}
     }
 
     /* HERO */
-    .hero{position:relative;width:100%;height:440px;overflow:hidden}
-    .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(70%)}
-    .hero .text{position:absolute;left:8%;top:50%;transform:translateY(-50%);color:#fff;max-width:500px}
-    .hero h1{font-size:40px;margin-bottom:14px}
-    .hero p{margin-bottom:20px;font-size:18px}
-    .hero .actions a{display:inline-block;margin-right:12px;background:#fff;color:var(--blue);padding:12px 18px;border-radius:8px;font-weight:700;text-decoration:none}
-    .hero .actions a:hover{background:#f0f0f0}
+    .hero{position:relative;width:100%;height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+    .hero img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+    .hero .wrap{max-width:var(--max);padding:20px}
+    .hero h1{margin:0 0 12px;font-size:clamp(28px,4vw,46px);text-shadow:0 2px 6px rgba(0,0,0,0.5)}
+    .hero p{text-shadow:0 1px 4px rgba(0,0,0,0.5);font-size:18px}
+    .hero .actions{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-size:16px}
+    .btn i{font-size:18px}
+    .btn-wa{background:#25D366;color:#fff}
+    .btn-call{background:#007BFF;color:#fff}
+    .btn-dark{background:#111827;color:#fff}
 
-    /* LEISTUNGEN */
+    /* SECTIONS */
     section{max-width:var(--max);margin:60px auto;padding:0 20px}
-    h2{text-align:center;font-size:26px;margin-bottom:30px;color:var(--blue)}
-    .leistungen{display:grid;gap:20px}
-    .leistung{background:#fff;display:flex;align-items:center;padding:20px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    .leistung i{font-size:32px;color:var(--blue);margin-right:18px}
+    h2{display:inline-block;border:2px solid var(--blue);color:var(--blue);padding:6px 18px;border-radius:12px;font-size:20px;margin-bottom:22px}
 
-    /* PREISE */
-    .preise{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;text-align:center}
-    .preis{background:#fff;padding:24px;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    .preis h3{margin-bottom:12px;color:var(--blue)}
-    .preis p{font-size:15px}
+    .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:22px;text-align:center}
+    .card i{font-size:28px;color:var(--blue);margin-bottom:10px}
+
+    /* PRICES */
+    .prices{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .price-card{background:#fff;border:1px solid #ddd;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:24px;text-align:center}
+    .price-card h3{margin-bottom:8px;color:var(--blue)}
 
     /* SCHNELL-ANGEBOT */
-    .angebot{background:var(--blue);color:#fff;padding:30px;border-radius:12px;max-width:700px;margin:0 auto;box-shadow:0 6px 16px rgba(0,0,0,0.2)}
-    .angebot h3{text-align:center;margin-bottom:20px}
+    .angebot{background:var(--blue);border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12);max-width:700px;margin:0 auto}
+    .angebot h3{margin-top:0;color:#fff;text-align:center}
     .angebot form{display:grid;gap:14px}
-    .angebot input,.angebot select{padding:12px;border:none;border-radius:8px;font-size:15px}
-    .angebot button{padding:12px;background:#fff;color:var(--blue);font-weight:700;border:none;border-radius:8px;cursor:pointer}
-    .angebot button:hover{background:#f0f0f0}
+    .angebot input,.angebot select{width:100%;padding:12px;border-radius:10px;border:none;font-size:15px}
+    .angebot button{background:#fff;color:var(--blue);font-weight:800;border:none;padding:12px;border-radius:10px;cursor:pointer}
+    .angebot button:hover{background:#e6eef7}
 
     /* KONTAKT */
-    #kontakt{text-align:center}
-    #kontakt p{margin:8px 0}
-    #kontakt i{color:var(--blue);margin-right:8px}
+    .kontakt{background:#fff;border:2px solid var(--blue);border-radius:14px;padding:24px;max-width:500px;margin:0 auto;text-align:center}
+    .kontakt h2{margin-bottom:18px;border:none;color:var(--blue)}
+
+    .kontakt p{margin:8px 0;font-size:16px}
+    .kontakt a{text-decoration:none;color:var(--blue);font-weight:600}
+    .kontakt a:hover{text-decoration:underline}
 
     /* FOOTER */
-    footer{background:#111;color:#fff;text-align:center;padding:20px;font-size:14px;margin-top:40px}
-    footer a{color:#fff;text-decoration:none}
+    footer{background:#111827;color:#fff;text-align:center;padding:20px;font-size:14px;margin-top:40px}
+    footer a{color:#fff;text-decoration:none;font-weight:600}
+    footer a:hover{text-decoration:underline}
+
+    /* Back-to-top button */
+    #topBtn{display:none;position:fixed;bottom:20px;right:20px;z-index:99;background:var(--blue);color:#fff;border:none;padding:14px;border-radius:50%;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,.3);font-size:18px}
+    #topBtn:hover{background:#094f94}
   </style>
 </head>
 <body>
@@ -83,36 +100,36 @@
 </header>
 
 <section class="hero">
-  <img src="hero-office.png" alt="Gebäudereinigung Köln">
-  <div class="text">
+  <img src="hero-office.png" alt="Gebäudereinigung Köln" />
+  <div class="wrap">
     <h1>Sauberkeit & Vertrauen – Köln & Umgebung</h1>
     <p>Haushalte, Büros, Geschäfte, Fenster- & Baureinigung. Angebot in 30 Minuten.</p>
     <div class="actions">
-      <a href="https://wa.me/4917680274345"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="tel:+4917680274345"><i class="fas fa-phone"></i> Anrufen</a>
-      <a href="angebot.html"><i class="fas fa-calendar"></i> Angebot anfragen</a>
+      <a href="https://wa.me/4917680274345" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="tel:+4917680274345" class="btn btn-call"><i class="fas fa-phone"></i> Anrufen</a>
+      <a href="angebot.html" class="btn btn-dark"><i class="fas fa-calendar"></i> Angebot anfragen</a>
     </div>
   </div>
 </section>
 
 <section id="leistungen">
   <h2>Unsere Leistungen</h2>
-  <div class="leistungen">
-    <div class="leistung"><i class="fas fa-home"></i><div><h3>Haushaltsreinigung</h3><p>Küche, Bad, Böden, Fenster & Details.</p></div></div>
-    <div class="leistung"><i class="fas fa-briefcase"></i><div><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten.</p></div></div>
-    <div class="leistung"><i class="fas fa-store"></i><div><h3>Geschäftsflächen</h3><p>Eröffnung, Pflege, Events.</p></div></div>
-    <div class="leistung"><i class="fas fa-hammer"></i><div><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div></div>
-    <div class="leistung"><i class="fas fa-stairs"></i><div><h3>Treppenhaus</h3><p>Regelmäßige Treppenhausreinigung.</p></div></div>
-    <div class="leistung"><i class="fas fa-window-maximize"></i><div><h3>Fensterreinigung</h3><p>Fenster, Vitrinen, Rahmen.</p></div></div>
+  <div class="cards">
+    <div class="card"><i class="fas fa-home"></i><h3>Haushaltsreinigung</h3><p>Küche, Bad, Böden, Fenster & Details.</p></div>
+    <div class="card"><i class="fas fa-briefcase"></i><h3>Büroreinigung</h3><p>Saubere Arbeitsplätze, flexible Zeiten.</p></div>
+    <div class="card"><i class="fas fa-store"></i><h3>Geschäftsflächen</h3><p>Eröffnung, Pflege, Events.</p></div>
+    <div class="card"><i class="fas fa-hammer"></i><h3>Baureinigung</h3><p>Bauschluss, Klebereste, Endreinigung.</p></div>
+    <div class="card"><i class="fas fa-stairs"></i><h3>Treppenhaus</h3><p>Regelmäßige Treppenhausreinigung.</p></div>
+    <div class="card"><i class="fas fa-window-maximize"></i><h3>Fensterreinigung</h3><p>Fenster, Vitrinen, Rahmen.</p></div>
   </div>
 </section>
 
 <section id="preise">
   <h2>Preise (ab)</h2>
-  <div class="preise">
-    <div class="preis"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
-    <div class="preis"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
-    <div class="preis"><h3>Fenster</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
+  <div class="prices">
+    <div class="price-card"><h3>Haushalt</h3><p>ab 20 €/Std. (min. 3 Std.)</p></div>
+    <div class="price-card"><h3>Büros</h3><p>Individuelles Angebot nach Fläche & Häufigkeit.</p></div>
+    <div class="price-card"><h3>Fenster</h3><p>ab 2 €/m². Rabatte bei Abo.</p></div>
   </div>
 </section>
 
@@ -135,7 +152,7 @@
   </form>
 </section>
 
-<section id="kontakt">
+<section id="kontakt" class="kontakt">
   <h2>Kontakt</h2>
   <p><i class="fas fa-phone"></i> <a href="tel:+4917680274345">+49 176 80274345</a></p>
   <p><i class="fas fa-envelope"></i> <a href="mailto:g.rusev2025@gmail.com">g.rusev2025@gmail.com</a></p>
@@ -143,11 +160,21 @@
 </section>
 
 <footer>
-  © 2025 Georgi Rusev Gebäudereinigung · Köln · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+  © 2025 Georgi Rusev Gebäudereinigung · Köln · 
+  <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
+<!-- Back to Top Button -->
+<button id="topBtn" title="Nach oben"><i class="fas fa-arrow-up"></i></button>
+
 <script>
-  document.querySelector('.toggle').addEventListener('click',()=>document.querySelector('.menu').classList.toggle('active'));
+  // Burger Menü
+  document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
+
+  // Back to top
+  const topBtn=document.getElementById("topBtn");
+  window.onscroll=function(){ if(document.body.scrollTop>200||document.documentElement.scrollTop>200){ topBtn.style.display="block"; } else { topBtn.style.display="none"; } }
+  topBtn.onclick=function(){ window.scrollTo({top:0,behavior:'smooth'}); }
 </script>
 </body>
 </html>
