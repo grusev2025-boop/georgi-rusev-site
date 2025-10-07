@@ -62,14 +62,28 @@
       margin:0 auto 22px;
       text-align:center;
     }
-    section h2{display:block;text-align:center}
+    section h2{
+      display:block;
+      width:max-content;
+      margin:0 auto 22px;
+      text-align:center;
+    }
 
     .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .card{background:#fff;border:1px solid #e6eef7;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,.06);padding:22px;text-align:center}
     .card i{font-size:28px;color:#0b6acb;margin-bottom:10px}
 
     /* SCHNELL-ANGEBOT */
-    .angebot{background:#0b6acb;border-radius:14px;padding:26px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12)}
+    .angebot{
+      background:#0b6acb;
+      border-radius:14px;
+      padding:26px;
+      color:#fff;
+      box-shadow:0 6px 16px rgba(0,0,0,.12);
+      max-width:760px;
+      width:100%;
+      margin:0 auto;
+    }
     .angebot h3{margin-top:0;color:#fff;text-align:center}
     .angebot form{display:grid;gap:14px}
     .angebot input,.angebot select{width:100%;padding:12px;border-radius:10px;border:none;font-size:15px}
@@ -86,6 +100,8 @@
       border-radius:12px;
       padding:15px 25px;
       text-align:center;
+      max-width:520px;
+      width:100%;
     }
     .kontakt-box p{margin:6px 0}
 
