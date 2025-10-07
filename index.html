@@ -17,27 +17,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
+    :root {
+      --blue:#0b6acb;
+      --blue2:#3aa0ff;
+      --bg:#f6f9fe;
+      --max:1200px;
+      --indigo:#6366f1; /* лилаво-синьо */
+    }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
-      color:#111827; line-height:1.6;
-      /* ГЛОБАЛЕН ФОН – снимка за цялата страница */
-      background: #0b6acb; /* fallback */
+      color:#111827;
+      line-height:1.6;
     }
-    /* Фиксиран фон + тъмен overlay за контраст */
+
+    /* ГЛОБАЛЕН ФОН */
     body::before{
       content:"";
       position:fixed; inset:0; z-index:-2;
       background:
         linear-gradient(0deg, rgba(8,25,46,.55), rgba(8,25,46,.35)),
         url("hero-office.png") center / cover no-repeat fixed;
-      will-change: transform;
     }
-    /* Допълнителен мек „grain“ за премахване на banding (по желание) */
     body::after{
       content:"";
       position:fixed; inset:0; z-index:-1; pointer-events:none;
@@ -46,22 +50,22 @@
     }
 
     /* NAV */
-    header{position:sticky;top:0;z-index:20; backdrop-filter:saturate(140%) blur(8px)}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(140%) blur(8px)}
     header::before{
       content:""; position:absolute; inset:0; z-index:-1;
       background:rgba(255,255,255,.7); border-bottom:1px solid rgba(255,255,255,.6);
     }
     .nav{max-width:var(--max);margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
     .logo{
-      display:flex;align-items:center;gap:8px;font-weight:800;
-      background:linear-gradient(90deg,#fff,#dbeafe);-webkit-background-clip:text;background-clip:text;color:transparent;
-      text-shadow:0 1px 1px rgba(0,0,0,.12);
-      font-size:clamp(18px,2.4vw,22px)
+      display:flex;align-items:center;gap:8px;
+      font-weight:800;
+      color:var(--blue); /* синьо лого */
+      font-size:clamp(18px,2.4vw,22px);
     }
-    .toggle{display:none;font-size:26px;color:#0b6acb;cursor:pointer}
+    .toggle{display:none;font-size:26px;color:var(--blue);cursor:pointer}
     .menu{display:flex;gap:22px;align-items:center}
     .menu a{text-decoration:none;color:#0f172a;font-weight:700;transition:transform .2s ease, opacity .2s ease}
-    .menu a:hover{transform:translateY(-1px); opacity:.9}
+    .menu a:hover{transform:translateY(-1px);opacity:.9}
     @media (max-width:860px){
       .toggle{display:block}
       .menu{display:none;position:absolute;right:20px;top:60px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);
@@ -69,7 +73,7 @@
       .menu.active{display:flex}
     }
 
-    /* HERO – става компактен банер над съдържанието */
+    /* HERO */
     .hero{max-width:var(--max);margin:22px auto 10px;padding:0 20px;text-align:center;color:#fff}
     .hero h1{margin:0 0 8px;font-size:clamp(24px,4.4vw,44px);text-shadow:0 2px 6px rgba(0,0,0,0.5)}
     .hero p{margin:0;text-shadow:0 1px 4px rgba(0,0,0,0.45)}
@@ -80,10 +84,10 @@
     .btn i{font-size:16px}
     .btn:hover{transform:translateY(-2px);box-shadow:0 10px 18px rgba(0,0,0,.18)}
     .btn-wa{background:#25D366;color:#0b2b14}
-    .btn-call{background:#fff;color:#0b6acb}
+    .btn-call{background:var(--indigo);color:#fff}   /* Лилаво-син бутон */
     .btn-dark{background:#111827;color:#fff}
 
-    /* GENERIC SECTION WRAPPER върху фон: полупрозрачно + blur */
+    /* SECTIONS */
     section{max-width:var(--max);margin:34px auto;padding:0 20px}
     .panel{
       background:rgba(255,255,255,.78);
@@ -94,15 +98,18 @@
       padding:22px;
     }
 
-    /* HEADINGS – компактни баджове */
+    /* HEADINGS – в лилаво-синьо */
     h2{
       display:inline-block;
-      background:#0b6acb; color:#fff;
+      background:var(--indigo);
+      color:#fff;
       padding:5px 14px;
       border-radius:999px;
-      font-size:16px; letter-spacing:.2px;
-      margin:0 auto 16px; text-align:center;
-      box-shadow:0 6px 12px rgba(11,106,203,.25);
+      font-size:16px;
+      letter-spacing:.2px;
+      margin:0 auto 16px;
+      text-align:center;
+      box-shadow:0 6px 12px rgba(99,102,241,.28);
     }
     section h2{display:block;width:max-content;margin:0 auto 16px}
 
@@ -115,51 +122,51 @@
       transition:transform .18s ease, box-shadow .18s ease;
     }
     .card:hover{transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.18)}
-    .card i{font-size:28px;color:#0b6acb;margin-bottom:10px}
+    .card i{font-size:28px;color:var(--blue);margin-bottom:10px}
 
-    /* SCHNELL-ANGEBOT – стеснен и върху панел */
+    /* SCHNELL-ANGEBOT */
     .angebot{max-width:760px;margin:0 auto}
-    .angebot .panel{background:rgba(11,106,203,.9); color:#fff; border-color:rgba(255,255,255,.35)}
+    .angebot .panel{background:var(--blue);color:#fff;border-color:rgba(255,255,255,.35)}
     .angebot h3{margin:0 0 8px;color:#fff;text-align:center}
     .angebot form{display:grid;gap:14px}
     .angebot input,.angebot select{
-      width:100%; padding:12px; border-radius:10px; border:none; font-size:15px;
-      background:#fff; color:#0b1e3a;
+      width:100%;padding:12px;border-radius:10px;border:none;font-size:15px;
+      background:#fff;color:#0b1e3a;
     }
     .angebot button{
-      background:#fff; color:#0b6acb; font-weight:800; border:none; padding:12px; border-radius:10px; cursor:pointer;
+      background:#fff;color:var(--blue);font-weight:800;border:none;padding:12px;border-radius:10px;cursor:pointer;
       transition:transform .18s ease, box-shadow .18s ease, background .2s ease
     }
-    .angebot button:hover{transform:translateY(-2px); box-shadow:0 10px 18px rgba(0,0,0,.18); background:#e6eef7}
+    .angebot button:hover{transform:translateY(-2px);box-shadow:0 10px 18px rgba(0,0,0,.18);background:#e6eef7}
 
-    /* KONTAKT – стеснен */
+    /* KONTAKT */
     #kontakt .kontakt-box{
       display:inline-block;
       background:rgba(255,255,255,.9);
       backdrop-filter:blur(6px);
       border:1px solid rgba(255,255,255,.85);
-      border-radius:12px; padding:15px 25px; text-align:center;
-      max-width:520px; width:100%;
+      border-radius:12px;padding:15px 25px;text-align:center;
+      max-width:520px;width:100%;
       box-shadow:0 10px 20px rgba(0,0,0,.12)
     }
     #kontakt .kontakt-box p{margin:6px 0}
-    #kontakt .kontakt-box a{color:#0b6acb;text-decoration:none;font-weight:700}
+    #kontakt .kontakt-box a{color:var(--blue);text-decoration:none;font-weight:700}
 
     /* FOOTER */
     footer{
-      background:rgba(11,106,203,.92); color:#fff; text-align:center;
-      padding:18px; font-size:14px; margin-top:34px;
+      background:linear-gradient(90deg,var(--blue),var(--indigo));
+      color:#fff;text-align:center;padding:18px;font-size:14px;margin-top:34px;
       border-top:1px solid rgba(255,255,255,.3)
     }
     footer a{color:#fff;text-decoration:none;font-weight:600}
 
     /* Back-to-top button */
-    #topBtn{display:none;position:fixed;bottom:20px;right:20px;z-index:99;background:#0b6acb;color:#fff;border:none;padding:14px;border-radius:50%;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,.3);font-size:18px;transition:transform .18s ease, box-shadow .18s ease}
-    #topBtn:hover{background:#094f94;transform:translateY(-2px);box-shadow:0 10px 18px rgba(0,0,0,.2)}
+    #topBtn{display:none;position:fixed;bottom:20px;right:20px;z-index:99;background:var(--blue);color:#fff;border:none;padding:14px;border-radius:50%;cursor:pointer;box-shadow:0 4px 8px rgba(0,0,0,.3);font-size:18px;transition:transform .18s ease, box-shadow .18s ease}
+    #topBtn:hover{background:var(--indigo);transform:translateY(-2px);box-shadow:0 10px 18px rgba(0,0,0,.2)}
 
-    /* REVEAL анимации при скрол */
-    .reveal{opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease}
-    .reveal.show{opacity:1; transform:none}
+    /* Reveal Animations */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1;transform:none}
   </style>
 </head>
 <body>
@@ -250,14 +257,10 @@
   <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
 </footer>
 
-<!-- Back to Top Button -->
 <button id="topBtn" title="Nach oben"><i class="fas fa-arrow-up"></i></button>
 
 <script>
-  // Burger Menü
   document.querySelector('.toggle').addEventListener('click', ()=>document.querySelector('.menu').classList.toggle('active'));
-
-  // Back to top
   const topBtn=document.getElementById("topBtn");
   window.addEventListener('scroll', ()=>{
     if(document.body.scrollTop>200||document.documentElement.scrollTop>200){
@@ -265,8 +268,6 @@
     } else { topBtn.style.display="none"; }
   });
   topBtn.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
-
-  // Reveal on scroll
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
@@ -274,5 +275,6 @@
   },{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
+
 </body>
 </html>
