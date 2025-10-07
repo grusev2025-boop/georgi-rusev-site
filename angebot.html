@@ -5,62 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Angebot anfordern – Georgi Rusev Gebäudereinigung</title>
   <meta name="description" content="Fordern Sie ein individuelles Reinigungsangebot für Köln & Umgebung an. Schnell, unkompliziert und kostenlos.">
-  <meta name="theme-color" content="#0b6acb">
+  <meta name="theme-color" content="#0a4ea1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root { --blue:#0b6acb; --blue2:#3aa0ff; --bg:#f6f9fe; --max:1200px }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; background:var(--bg); color:#111827; line-height:1.6; }
 
-    /* NAV */
-    header { position:sticky; top:0; z-index:20; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); }
-    .nav { max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
-    .logo { display:flex; align-items:center; gap:10px; font-weight:800;
-      background:linear-gradient(90deg,#0b6acb,#3aa0ff);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      font-size:clamp(18px,2.4vw,24px); }
-    .toggle { display:none; font-size:26px; color:var(--blue); cursor:pointer; }
-    .menu { display:flex; gap:22px; align-items:center; }
-    .menu a { text-decoration:none; color:var(--blue); font-weight:700; padding:8px 14px; border-radius:6px; transition:0.3s; }
-    .menu a:hover { background:var(--blue); color:#fff; }
-    @media (max-width:860px){
-      .toggle { display:block; }
-      .menu { display:none; position:absolute; right:20px; top:60px; background:#fff; border:1px solid #e6eef7; border-radius:12px; box-shadow:0 10px 20px rgba(0,0,0,.12); padding:12px; flex-direction:column; gap:10px; }
-      .menu.active { display:flex; }
+  <style>
+    /* ===== Palette (като index, без фонова снимка) ===== */
+    :root{
+      --brand:#0a4ea1;        /* deep blue */
+      --brand-2:#0f78ff;      /* electric blue */
+      --accent:#635bff;       /* indigo */
+      --text:#0f172a;
+      --muted:#f2f5fb;
+      --glass-bg:rgba(255,255,255,.92);
+      --glass-brd:rgba(15,23,42,.06);
+      --max:1200px;
     }
 
-    /* HERO */
-    .hero { position:relative; background:linear-gradient(135deg,#0b6acb,#3aa0ff); color:#fff; text-align:center; padding:60px 20px; }
-    .hero .wrap { max-width:var(--max); margin:0 auto; }
-    .hero h1 { margin:0 0 12px; font-size:clamp(26px,4.5vw,42px); font-weight:800; }
-    .hero p { margin:0; font-size:18px; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+      color:var(--text); line-height:1.6;
+      background:
+        radial-gradient(1200px 800px at 20% -10%, #e7f0ff 0%, transparent 60%),
+        radial-gradient(1200px 800px at 120% 10%, #edf0ff 0%, transparent 60%),
+        linear-gradient(#f7f9ff, #eef3ff);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
 
-    /* FORM */
-    .wrap { max-width:var(--max); margin:40px auto; padding:0 20px; }
-    .card { background:#fff; border:1px solid #d8e5f5; border-radius:12px; padding:24px; box-shadow:0 8px 18px rgba(0,0,0,.08); }
-    h2.sec { margin:20px 0 10px; color:var(--blue); font-size:20px; }
+    /* ===== Top Nav (glass) ===== */
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(140%) blur(8px)}
+    header::before{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background:rgba(255,255,255,.85); border-bottom:1px solid var(--glass-brd);
+    }
+    .nav{max-width:var(--max); margin:0 auto; padding:12px 20px; display:flex; align-items:center; justify-content:space-between}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:900; color:var(--brand); font-size:clamp(18px,2.4vw,22px)}
+    .logo i{font-size:18px}
+    .toggle{display:none; font-size:26px; color:var(--brand); cursor:pointer}
+    .menu{display:flex; gap:22px; align-items:center}
+    .menu a{
+      text-decoration:none; color:#0b1530; font-weight:700;
+      padding:6px 10px; border-radius:10px;
+      transition:color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .menu a:hover{background:rgba(99,91,255,.08); color:var(--accent); transform:translateY(-1px)}
+    @media(max-width:860px){
+      .toggle{display:block}
+      .menu{
+        display:none; position:absolute; right:20px; top:60px;
+        background:rgba(255,255,255,.96); backdrop-filter:blur(10px);
+        border:1px solid var(--glass-brd); border-radius:14px;
+        box-shadow:0 14px 28px rgba(0,0,0,.12);
+        padding:12px; flex-direction:column; gap:10px;
+      }
+      .menu.active{display:flex}
+    }
 
-    .grid { display:grid; gap:16px; }
-    .g2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .g3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
-    @media(max-width:880px){ .g2,.g3{ grid-template-columns:1fr; } }
+    /* ===== Hero ===== */
+    .hero{max-width:var(--max); margin:28px auto 8px; padding:0 20px; text-align:center}
+    .badge{
+      display:inline-block; padding:6px 14px; border-radius:999px; font-weight:800; font-size:12px;
+      background:linear-gradient(90deg, var(--accent), var(--brand-2)); color:#fff; letter-spacing:.3px;
+      box-shadow:0 10px 22px rgba(16,120,255,.20);
+    }
+    .hero h1{margin:8px 0 8px; font-weight:900; letter-spacing:.3px; font-size:clamp(26px,4.6vw,46px); color:#0c1c3d}
+    .hero p{margin:0; color:#2b3551; opacity:.9}
 
-    label { font-weight:700; font-size:14px; }
-    input,select,textarea { width:100%; padding:12px; border:1px solid #d8e5f5; border-radius:10px; font-size:16px; background:#fff; }
-    textarea { min-height:100px; }
+    /* ===== Section + card ===== */
+    section{max-width:var(--max); margin:34px auto; padding:0 20px}
+    .panel{
+      background:var(--glass-bg);
+      backdrop-filter:blur(6px) saturate(120%); -webkit-backdrop-filter:blur(6px) saturate(120%);
+      border:1px solid var(--glass-brd);
+      border-radius:18px;
+      box-shadow:0 18px 40px rgba(0,0,0,.10);
+      padding:22px;
+    }
 
-    .actions { margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:10px; font-weight:800; text-decoration:none; border:none; cursor:pointer; transition:.2s; }
-    .btn-mail { background:#0b6acb; color:#fff; }
-    .btn-mail:hover { background:#094f94; }
-    .btn-ghost { background:#fff; color:#0b6acb; border:1px solid #cfe3ff; }
-    .btn i { font-size:18px; }
+    h2.sec{
+      display:inline-block;
+      background:linear-gradient(90deg, var(--accent), var(--brand-2));
+      color:#fff; padding:6px 16px; border-radius:999px;
+      font-size:14px; letter-spacing:.2px; margin:8px 0 14px 0;
+      box-shadow:0 10px 22px rgba(16,120,255,.22);
+    }
 
-    .checklbl { display:flex; align-items:center; gap:10px; margin-top:15px; font-size:14px; }
-    .checklbl input { width:auto; }
+    /* ===== Form ===== */
+    .grid{display:grid; gap:16px}
+    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media(max-width:900px){ .g2,.g3{grid-template-columns:1fr} }
 
-    footer { background:#0b6acb; color:#fff; padding:30px 20px; text-align:center; font-size:14px; margin-top:60px; }
-    footer a { color:#fff; text-decoration:underline; }
+    label{font-weight:800; font-size:14px}
+    input,select,textarea{
+      width:100%; padding:12px; border-radius:12px; border:none; font-size:16px;
+      background:#fff; color:#0c142b; box-shadow:inset 0 0 0 1px rgba(15,23,42,.08);
+      transition:box-shadow .15s ease, transform .05s ease;
+    }
+    input:focus,select:focus,textarea:focus{outline:none; box-shadow:0 0 0 3px rgba(99,91,255,.25), inset 0 0 0 1px rgba(15,23,42,.08)}
+    textarea{min-height:110px}
+
+    .actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 18px; border-radius:12px; font-weight:900; text-decoration:none; border:none; cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .2s ease; font-size:15px;
+    }
+    .btn i{font-size:16px}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2)); color:#fff}
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 22px rgba(0,0,0,.18)}
+    .btn-ghost{background:#fff; color:var(--brand); box-shadow:inset 0 0 0 1px rgba(13,63,125,.18)}
+    .btn-ghost:hover{transform:translateY(-2px); box-shadow:0 10px 18px rgba(0,0,0,.14)}
+
+    .checklbl{display:flex; align-items:flex-start; gap:10px; margin-top:14px; font-size:14px}
+    .checklbl input{width:auto; margin-top:2px}
+
+    /* ===== Reveal animations ===== */
+    .reveal{opacity:0; transform:translateY(16px); transition:opacity .5s ease, transform .5s ease}
+    .reveal.show{opacity:1; transform:none}
+
+    /* ===== Footer ===== */
+    footer{
+      background:linear-gradient(90deg, var(--brand), var(--accent));
+      color:#fff; text-align:center; padding:18px; font-size:14px; margin-top:34px;
+      border-top:1px solid rgba(255,255,255,.28)
+    }
+    footer a{color:#fff; text-decoration:none; font-weight:700}
   </style>
 </head>
 <body>
@@ -78,17 +150,16 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Angebot anfordern</h1>
-    <p>Geben Sie die wichtigsten Daten an – wir melden uns in max. 30 Minuten.</p>
-  </div>
+<section class="hero reveal">
+  <span class="badge">Schnell & kostenlos</span>
+  <h1>Angebot anfordern</h1>
+  <p>Geben Sie die wichtigsten Daten an – wir melden uns in max. 30 Minuten.</p>
 </section>
 
-<section class="wrap">
-  <div class="card">
+<section class="reveal">
+  <div class="panel">
     <form id="offerForm" action="https://formspree.io/f/xovkqzwa" method="POST">
-      
+
       <h2 class="sec">1) Kontaktdaten</h2>
       <div class="grid g2">
         <div><label>Name *</label><input type="text" name="Name" required></div>
@@ -172,7 +243,7 @@
       </label>
 
       <div class="actions">
-        <button type="submit" class="btn btn-mail"><i class="fas fa-paper-plane"></i> Anfrage absenden</button>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Anfrage absenden</button>
         <a href="index.html" class="btn btn-ghost"><i class="fas fa-arrow-left"></i> Zurück zur Startseite</a>
       </div>
     </form>
@@ -186,9 +257,18 @@
 </footer>
 
 <script>
+  // Burger menu
   document.querySelector('.toggle').addEventListener('click', () => {
     document.querySelector('.menu').classList.toggle('active');
   });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); observer.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 
 </body>
